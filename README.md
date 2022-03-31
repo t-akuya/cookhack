@@ -1,24 +1,37 @@
 # README
+<img  alt="" src="">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
+Cookhack
 
-Things you may want to cover:
+## 概要
+料理を時短するためのレシピ投稿サイトです。
+時短料理のレパートリーや時短テクニックを共有し、料理にかかる時間を削減、楽にします。
 
-* Ruby version
+## 本番環境
+URL:
 
-* System dependencies
+ログイン情報 
+- Eメール:
+- パスワード:
 
-* Configuration
+Basic認証
+- ID:
+- Pass:
 
-* Database creation
+## 制作背景(意図)
+　誰かの課題を解決できるようなアプリを作りたいと考えていたので、まずは一番身近である家族の負担を軽減できたらと思い、制作しました。
+家事の中でも料理は特に時間と労力を費やします。その負担を少しでも減らし、ユーザーの自由な時間を少しでも増やせるように設計しました。
 
-* Database initialization
+## DEMO
+	画像はGyazoGIFはGyazoGIFで
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## 工夫したポイント
 
-* Deployment instructions
+## 使用技術(開発環境)
 
-* ...
+## 課題や今後実装したい機能
+
+## DB設計
+ER図等を添付
