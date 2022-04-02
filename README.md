@@ -35,3 +35,86 @@ Basic認証
 
 ## DB設計
 ER図等を添付
+
+
+
+
+## usersテーブル
+
+| Column             | Type     | Options                       |
+| ------------------ | -------- | ----------------------------- |
+| nickname           | string   | null: false                   |
+| email              | string   | null: false, unique: true     |
+| encrypted_password | string   | null: false                   |
+| first_name         | string   | null: false                   |
+| last_name          | string   | null: false                   |
+| first_name_kana    | string   | null: false                   |
+| last_name_kana     | string   | null: false                   |
+| birth_day          | date     | null: false                   |
+
+### Association
+- has_many :repertoires
+- has_many :ingredients
+- has_many :cooking_hack
+
+
+
+## cooking_hack
+
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| title              | string     | null: false                   |
+| summary            | text       | null: false                   |
+| process            | text       | null: false                   |
+| user               | references | null: false                   |
+
+### Association
+- belongs_to :user
+
+
+
+## repertoiresテーブル
+
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| name               | string     | null: false                   |
+| time               | integer    | null: false                   |
+| recipe             | text       | null: false                   |
+| comment            | text       | null: false                   |
+| category_id        | integer    | null: false                   |
+| user               | references | null: false, foreign_key      |
+| ingredient         | references | null: false, foreign_key      |
+
+### Association
+- belongs_to :user
+- has_many   :repertoire_ingredients
+- has_many   :ingredients, through: :repertoire_ingredients
+
+
+
+## ingredientsテーブル
+
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| name               | string     | null: false                   |
+| amount             | integer    | null: false                   |
+| unit_id            | integer    | null: false                   |
+| repertoire         | references | null: false,foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_many   :repertoire_ingredients
+- has_many   :repertoires, through: :repertoire_ingredients
+
+
+
+## repertoire_ingredients
+
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| repertoires        | references | null: false,foreign_key: true |
+| ingredients        | references | null: false,foreign_key: true |
+
+### Association
+- belongs_to :repertoires
+- belongs_to :ingredients
