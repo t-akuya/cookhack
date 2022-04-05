@@ -1,0 +1,15 @@
+.sub-header {
+  width: 100%;
+  min-width: 800px;
+  height: 180px;
+  background-color: #81cac4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+}
+
+.main-logo {
+  width: 480px;
+  height: 128px;
+}
