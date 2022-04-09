@@ -1,0 +1,24 @@
+.error_explanation {
+  margin: 0 auto;
+  margin-bottom: 5vh;
+}
+
+.error-message {
+  display: table;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
+}
+
+h2 {
+  display: table;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
+}
