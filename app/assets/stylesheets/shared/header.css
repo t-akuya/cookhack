@@ -21,6 +21,8 @@
   justify-content: center;
   font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
   color: #7f7f7f;
+  margin-left: 5vw;
+  marginZ-top: 20px;
 }
 
 .header-right {
@@ -48,7 +50,8 @@
   text-decoration: none;
   color: #ca8187;
   font-weight: bold;
-  margin-left: 3vw;
+  padding-left: 150px;
+  font-size: 23px;
 }
 
 .logout {
