@@ -1,0 +1,2 @@
+class Repertoire < ApplicationRecord
+end
