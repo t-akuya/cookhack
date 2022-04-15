@@ -1,0 +1,162 @@
+a {
+  text-decoration: none;
+}
+
+.main {
+  width: 100%;
+  background: #f8f8f8;
+  overflow:hidden;
+}
+
+.title-contents {
+  max-width: 100vw;
+  background-image: image-url('sample-main.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.service-title {
+  color: #fff;
+  font-size: 15vh;
+  letter-spacing: 25px;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+  text-align: center;
+  margin:  0 auto;
+}
+
+.store-btn {
+  display: flex;
+  margin-top: 24px;
+  text-align: center;
+  margin:  0 auto;
+}
+
+.apple-btn {
+  margin-right: 1vw;
+  height: 9vh;
+}
+
+.google-btn {
+  height: 9vh;
+}
+
+
+.search-bar-contents {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  background-color: #81cac4;
+}
+
+.search-form {
+  width: 100%;
+  height: 10vh;
+
+  display: flex;
+  justify-content: center;
+}
+
+.search-form>.input-box {
+  width: 20vw;
+  height: 10vh;
+  text-align: center;
+}
+
+.search-button {
+  width: 5vw;
+  height: 58px;
+  border: solid 1px #000000;
+  cursor: pointer;
+  background-color: #ca8187;
+}
+
+.search-icon {
+  width: 60%;
+}
+
+
+
+
+
+.repertoire-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.repertoire-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+  color: #81cac4;
+  padding-bottom: 50px;
+}
+
+
+.repertoire-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.repertoire-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+  margin: 10px;
+}
+
+.repertoire-img {
+  width: 42vh;
+  height: 33vh;
+  
+}
+
+.repertoire-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.repertoire-name {
+  font-size: 3vh;
+
+}
+
+.repertoire-category {
+  font-size: 1vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.star-btn {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.star-count {
+  font-size: 2vh;
+}

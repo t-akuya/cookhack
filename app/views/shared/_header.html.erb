@@ -1,0 +1,32 @@
+<header class='top-page-header'>
+ 
+  <div class='header-left'>
+  <%= link_to image_tag("color-cook-hack-logo.png", class:"cook-hack-header-icon"), "/" %>
+  </div>
+    <div class='header-center'>
+      <div class='header-list'>
+        <ul class='list'>
+          <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+          <li><%= link_to 'みんなのレパートリー', "#", class: "repertoires-list" %></li>
+          <li><%= link_to 'みんなのハック', "#", class: "hack-list" %></li>
+          <% if user_signed_in? %>
+          <%# ニックネームをクリックするとマイページに遷移するようにする%>
+            <li><%= link_to 'マイページ', "#",  class: "my_page" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+          <%# ニックネームをクリックするとマイページに遷移するようにする%>
+            <% else %>
+            <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    
+    <div class='header-right'>
+    <%= link_to image_tag("color-cook-hack-logo.png", class:"cook-hack-right-icon"), "/" %>
+    <%# メニューボタン挿入%>
+    </div>
+
+
+</header>
