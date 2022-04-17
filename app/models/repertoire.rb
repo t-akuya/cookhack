@@ -1,2 +1,18 @@
 class Repertoire < ApplicationRecord
+  has_one_attached :image
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+
+  with_options presence: ture do
+    validates :image
+    validates :name
+    validates :time
+    validates :recipe
+    validates :category, numericality: { other_than: 1 , message: "can't be blank" }
+    
+  end
+
+
+
 end
