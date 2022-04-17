@@ -1,0 +1,69 @@
+
+
+.ad-footer-contents {
+  max-width: 100vw;
+  background-image: image-url('orange.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.ad-footer-title {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: #fff;
+}
+
+.ad-footer-explain {
+  font-size: 3vh;
+  line-height: 30px;
+}
+
+
+
+.footer {
+  max-width: 100vw;
+  padding: 5vh 0;
+  color: #FFF;
+  background-color: #81cac4;
+  text-align: center;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.cook-hack-details {
+  margin: 0 4vw;
+}
+
+.footer-content-head {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-link {
+  color: #FFF;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.logo-white {
+  width: 20vh;
+  vertical-align: bottom;
+}
+
+.footer>p {
+  font-size: 14px;
+}

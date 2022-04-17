@@ -1,0 +1,84 @@
+
+.top-page-header {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.cook-hack-header-icon {
+  width: 12vw;
+  height: 120px;
+  margin: 1vw;
+}
+
+.header-center {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+  color: #7f7f7f;
+  margin-left: 5vw;
+  marginZ-top: 20px;
+}
+
+.header-right {
+  margin-left: auto;
+}
+
+.category-list {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #525252;
+}
+
+.repertoires-list {
+  text-decoration: none;
+  color: #525252;
+  margin-right: 3vw;
+}
+
+.hack-list {
+  text-decoration: none;
+  color: #525252;
+}
+
+.user-nickname {
+  text-decoration: none;
+  color: #ca8187;
+  font-weight: bold;
+  padding-left: 150px;
+  font-size: 23px;
+}
+
+.logout {
+  text-decoration: none;
+  color: #525252;
+  margin-left: 3vw;
+}
+
+.login {
+  text-decoration: none;
+  margin-left: 3vw;
+  color: #525252;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #525252;
+  margin-left: 3vw;
+}
+
+.my_page {
+  text-decoration: none;
+  color: #525252;
+}
+
+.cook-hack-right-icon {
+  width: 12vw;
+  height: 120px;
+  margin: 1vw;
+}
