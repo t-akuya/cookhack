@@ -6,11 +6,11 @@ class Repertoire < ApplicationRecord
 
   with_options presence: ture do
     validates :image
-    validates :name
+    validates :name, length: {maximum: 40}
     validates :time
     validates :recipe
-    validates :category, numericality: { other_than: 1 , message: "can't be blank" }
-    
+    validates :comment
+    validates :category_id, numericality: { other_than: 1 , message: "can't be blank" }
   end
 
 
