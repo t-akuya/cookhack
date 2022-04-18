@@ -3,16 +3,17 @@ class Repertoire < ApplicationRecord
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
+  belongs_to :user
 
-  with_options presence: ture do
+  with_options presence: true do
     validates :image
     validates :name, length: {maximum: 40}
-    validates :time
+    validates :time, length: {maximum: 3}
     validates :recipe
     validates :comment
-    validates :category_id, numericality: { other_than: 1 , message: "can't be blank" }
   end
 
+  validates :category_id, numericality: { other_than: 1 , message: "can't be blank" }
 
 
 end
