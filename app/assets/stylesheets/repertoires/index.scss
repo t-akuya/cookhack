@@ -25,12 +25,13 @@ a {
 
 .service-title {
   color: #fff;
-  font-size: 15vh;
+  font-size: 100px;
   letter-spacing: 25px;
+  text-align: center;
 }
 
 .service-explain {
-  font-size: 2.5vh;
+  font-size: 20px;
   line-height: 40px;
   text-align: center;
   margin:  0 auto;
@@ -122,18 +123,18 @@ a {
 .repertoire-img {
   width: 42vh;
   height: 33vh;
-  
+  margin-left: 50px;
 }
 
 .repertoire-info {
   background-color: #FFF;
   color: black;
   padding: 1vw;
+  text-align: center;
 }
 
 .repertoire-name {
   font-size: 3vh;
-
 }
 
 .repertoire-category {
@@ -144,7 +145,6 @@ a {
 
 
 .star-btn {
-  display: flex;
   align-items: center;
 }
 
