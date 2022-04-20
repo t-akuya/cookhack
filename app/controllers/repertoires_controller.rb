@@ -19,6 +19,10 @@ class RepertoiresController < ApplicationController
       end
   end
 
+  def show
+    @repertoire = Repertoire.find(params[:id])
+  end
+
 
 end
 
