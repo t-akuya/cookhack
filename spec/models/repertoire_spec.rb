@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Repertoire, type: :model do
   before do
-    @repertoire =FactoryBot.build(:repertoire)
+    @repertoire = FactoryBot.build(:repertoire)
+    @repertoire.image = fixture_file_upload("/test_image.png")
   end
 
   describe 'レパートリー料理投稿機能' do
@@ -55,7 +56,7 @@ RSpec.describe Repertoire, type: :model do
         @repertoire.valid?
         expect(@repertoire.errors.full_messages).to include("調理時間が選択されていません")
       end
-      
+
     end
   end
 end
