@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_035827) do
 
   create_table "repertoires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "time", null: false
+    t.integer "cooking_time_id", null: false
     t.text "recipe", null: false
     t.text "comment", null: false
     t.integer "category_id", null: false

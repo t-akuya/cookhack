@@ -26,5 +26,5 @@ end
 private
 
 def repertoire_params
-  params.require(:repertoire).permit(:image, :name, :time, :recipe, :comment, :category_id).merge(user_id: current_user.id)
+  params.require(:repertoire).permit(:image, :name, :cooking_time_id, :category_id, :recipe, :comment, :user_id).merge(user_id: current_user.id)
 end

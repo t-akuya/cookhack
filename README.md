@@ -78,7 +78,7 @@ ER図等を添付
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | name               | string     | null: false                   |
-| time               | integer    | null: false                   |
+| cooking_time_id    | integer    | null: false                   |
 | recipe             | text       | null: false                   |
 | comment            | text       | null: false                   |
 | category_id        | integer    | null: false                   |
