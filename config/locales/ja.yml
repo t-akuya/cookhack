@@ -1,5 +1,7 @@
 ja:
   activerecord:
+    models:
+      user: ユーザー
     attributes:
       user:
         nickname:               ニックネーム
@@ -11,11 +13,3 @@ ja:
         last_name_kana:         名字カナ
         first_name_kana:        名前カナ
         birth_day:              生年月日
-      
-      repertoire:
-        image:                  画像ファイル
-        name:                   料理名
-        time:                   調理時間
-        category_id:            カテゴリー
-        recipe:                 レシピ
-        comment:                ひとことメモ
