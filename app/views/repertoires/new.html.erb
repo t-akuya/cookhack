@@ -6,9 +6,9 @@
   <div class="repertoires-post-main">
     <h2 class="repertoires-post-title">レパートリー料理を入力</h2>
 
-    <%= form_with model: @repertoire, local: true do |f| %>
+    <%= form_with model: @repertoire, url:repertoires_path, local: true do |f| %>
     <%= render 'devise/shared/error_messages', model: f.object %>
-
+    
     <div class="img-upload">
       <div class="weight-bold-text">
         料理画像
@@ -29,14 +29,15 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"post-text", id:"repertoire-name", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
-      
+    <div class="repertoire-detail">
+      <div class="form">
       <div class="weight-bold-text">
-        所要時間
+        調理時間
         <span class="indispensable">必須</span>
       </div>
-      約
-      <%= f.number_field :time, class:"time-text", id:"repertoire-time", maxlength:"3" %>
-      分
+      <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"repertoire-cooking-time"}) %>
+      </div>
+      </div>
     <div class="repertoire-detail">
       <div class="form">
         <div class="weight-bold-text">
