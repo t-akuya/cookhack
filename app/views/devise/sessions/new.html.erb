@@ -1,6 +1,6 @@
 <%=render "/devise/shared/sub-header"%>
-<%= form_with model:@user, url:user_session_path,class: 'registration-main', local: true do |f| %>
-<%= render "devise/shared/error_messages",model: f.object %>
+<%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
+
 <div class='form-wrap'>
   <div class='form-header'>
     <h2 class='form-header-text'>
@@ -23,7 +23,7 @@
       <label class="form-text">パスワード</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.password_field :passward, class:"input-default", id:"password", placeholder:"" %>
+    <%= f.password_field :passward, class:"input-default", id:"password" %>
   </div>
   <div class='login-btn'>
     <%= f.submit "ログイン" ,class:"login-red-btn" %>
