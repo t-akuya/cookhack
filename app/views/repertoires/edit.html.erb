@@ -1,0 +1,92 @@
+<div class="repertoires-post-contents">
+  <header class="repertoires-post-header">
+    <%= link_to image_tag('cook-hack-logo3shiro.png'), "/" %>
+  </header>
+
+  <div class="repertoires-post-main">
+    <h2 class="repertoires-post-title">レパートリー料理を入力</h2>
+
+    <%= form_with model: @repertoire, local: true do |f| %>
+    <%= render 'devise/shared/error_messages', model: f.object %>
+    
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        料理画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"repertoire-image" %>
+      </div>
+    </div>
+
+
+    <div class="new-repertoire">
+      <div class="weight-bold-text">
+        料理名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"post-text", id:"repertoire-name", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
+    <div class="repertoire-detail">
+      <div class="form">
+      <div class="weight-bold-text">
+        調理時間
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"repertoire-cooking-time"}) %>
+      </div>
+      </div>
+    <div class="repertoire-detail">
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"repertoire-category"}) %>
+      </div>
+    </div>
+
+    <div class="repertoire-explain">
+      <div class="weight-bold-text">
+        レシピ
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（材料、分量、手順、など）
+      例）材料:生卵・・・1個
+              醤油・・・小さじ1
+              白米・・・茶碗1杯
+ 
+              白米の上に卵を落とす。
+              醤油をかけて完成！！" ,rows:"7" %>
+    </div>
+  </div>
+
+    <div class="new-repertoire">
+      <div class="weight-bold-text">
+        ひとことメモ
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :comment, class:"comment-text", id:"repertoire-comment", placeholder:"醤油のかけすぎに注意！" %>
+    </div>
+
+    <div class="repertoire-post-btn-contents">
+      <%= f.submit "変更する" ,class:"repertoire-post-btn" %>
+      <%=link_to 'もどる', root_path, class:"repertoire-back-btn" %>
+    </div>
+
+  </div>
+  <% end %>
+
+  <footer class="repertoires-post-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">クックハック利用規約</a></li>
+    </ul>
+    <%= link_to image_tag('cook-hack-logo3shiro.png'), "/" %>
+    <p class="inc">
+      ©︎Cookhack,Inc.
+    </p>
+  </footer>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'repertoires#index'
-  resources :repertoires, only: [:index, :new, :create, :show]
+  resources :repertoires, only: [:index, :new, :create, :show, :edit, :update]
 
 end

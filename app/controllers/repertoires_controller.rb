@@ -1,6 +1,7 @@
 class RepertoiresController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
-  
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_action, only: [:show, :edit, :update]
+
   def index
     @repertoires = Repertoire.includes(:user)
     @repertoires = Repertoire.order("created_at DESC")
@@ -20,9 +21,22 @@ class RepertoiresController < ApplicationController
   end
 
   def show
-    @repertoire = Repertoire.find(params[:id])
+
   end
 
+  def edit
+    if @repertoire.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def update
+    if @repertoire.update(repertoire_params)
+      redirect_to repertoire_path
+    else
+      render :edit
+    end
+  end
 
 end
 
@@ -31,4 +45,8 @@ private
 
 def repertoire_params
   params.require(:repertoire).permit(:image, :name, :cooking_time_id, :category_id, :recipe, :comment, :user_id).merge(user_id: current_user.id)
+end
+
+def set_action
+  @repertoire = Repertoire.find(params[:id])
 end
