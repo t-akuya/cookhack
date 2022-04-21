@@ -38,7 +38,7 @@
 
       <% @repertoires.each do |repertoire| %>
         <li class='list'>
-          <%= link_to "#" do %>
+          <%= link_to repertoire_path(repertoire.id) do %>
           <div class='repertoire-img-content'>
             <%= image_tag repertoire.image, class: "repertoire-img" %>
           </div>

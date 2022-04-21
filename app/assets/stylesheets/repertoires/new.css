@@ -94,13 +94,6 @@
   font-size:15px;
 }
 
-.time-text {
-  width: 60px;
-  height:50px;
-  font-size: 30px;
-}
-
-
 
 .repertoire-detail {
   display: flex;
@@ -120,8 +113,6 @@
 }
 
 .comment-text{
-  width: 65%;
-  height: 50px;
   font-size:15px;
 }
 
