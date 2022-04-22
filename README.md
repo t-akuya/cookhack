@@ -97,8 +97,6 @@ ER図等を添付
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | name               | string     | null: false                   |
-| amount             | integer    | null: false                   |
-| unit_id            | integer    | null: false                   |
 | repertoire         | references | null: false,foreign_key: true |
 
 ### Association
