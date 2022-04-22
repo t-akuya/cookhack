@@ -1,6 +1,6 @@
 class RepertoiresController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_action, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_action, only: [:show, :edit, :update, :destroy]
 
   def index
     @repertoires = Repertoire.includes(:user)
@@ -36,6 +36,13 @@ class RepertoiresController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @repertoire.user_id == current_user.id
+      @repertoire.destroy
+    end
+    redirect_to root_path
   end
 
 end
