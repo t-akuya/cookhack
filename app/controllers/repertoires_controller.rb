@@ -22,7 +22,7 @@ class RepertoiresController < ApplicationController
   end
 
   def show
-
+    @ingredient = Ingredient.find(params[:id])
   end
 
   def edit
@@ -61,7 +61,7 @@ def repertoire_params
     :recipe,
     :comment,
     :user_id,
-    ingredients_attributes: [:serving_id, :name, :amount, :_destroy]
+    ingredients_attributes: [:id, :serving_id, :name, :amount, :_destroy]
     )
     .merge(user_id: current_user.id)
 end

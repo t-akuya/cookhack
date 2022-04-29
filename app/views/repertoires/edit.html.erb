@@ -48,6 +48,24 @@
       </div>
     </div>
 
+
+   <%= f.fields_for :ingredients do |ingredient| %>
+      <div class="weight-bold-text">
+          材料
+          <span class="indispensable">必須</span>
+      </div>
+      <div class="borderless-table">
+      <%= ingredient.collection_select(:serving_id, Serving.all, :id, :name, {}, {class:"serving-select-box", id:"ingredient-serving"}) %>
+        <table class="ingredients">
+          <%= ingredient.text_field :name, class:"ingredient-name",  placeholder: "例）たまご" %>
+          <%= ingredient.text_field :amount, class:"ingredient-amount", placeholder: "例) 1個" %>
+          <input type="button" value="削除" class="ingredient-btn" >
+        </table>
+        <input type="button" value="材料を追加" class="add-ingredient-btn" >
+      </div>
+    <% end %>
+
+
     <div class="repertoire-explain">
       <div class="weight-bold-text">
         レシピ
