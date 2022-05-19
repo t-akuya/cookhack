@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2022_04_22_053336) do
   end
 
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "serving_id", null: false
     t.string "name", null: false
     t.string "amount", null: false
     t.bigint "repertoire_id", null: false
@@ -49,6 +48,7 @@ ActiveRecord::Schema.define(version: 2022_04_22_053336) do
     t.text "recipe", null: false
     t.text "comment", null: false
     t.integer "category_id", null: false
+    t.integer "serving_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

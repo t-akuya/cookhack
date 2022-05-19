@@ -82,6 +82,7 @@ ER図等を添付
 | recipe             | text       | null: false                   |
 | comment            | text       | null: false                   |
 | category_id        | integer    | null: false                   |
+| serving_id            | integer    | null: false                |
 | user               | references | null: false, foreign_key      |
 
 ### Association
@@ -94,7 +95,6 @@ ER図等を添付
 
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
-| serving            | integer    | null: false                   |
 | name               | string     | null: false                   |
 | amount             | string     | null: false                   |
 | repertoire         | references | null: false,foreign_key: true |
