@@ -29,57 +29,83 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"post-text", id:"repertoire-name", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
-    <div class="repertoire-detail">
-      <div class="form">
+      <div class="repertoire-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            調理時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"repertoire-cooking-time"}) %>
+        </div>
+      </div>
+      <div class="repertoire-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"repertoire-category"}) %>
+        </div>
+      </div>
+
+      <div class="repertoire-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            人数
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:serving_id, Serving.all, :id, :name, {}, {class:"select-box", id:"repertoire-serving"}) %>
+        </div>
+      </div>
+
+
       <div class="weight-bold-text">
-        調理時間
+        材料
         <span class="indispensable">必須</span>
       </div>
-      <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"repertoire-cooking-time"}) %>
-      </div>
-      </div>
-    <div class="repertoire-detail">
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
+      <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
+      <%= javascript_pack_tag 'editAddForm.js'%>
+
+       
+        <div class="ingredient-group">
+          <div id="ingredient-main">
+            <%= f.fields_for :ingredients,  include_id: false do |ingredient| %>
+            <!--<%= @repertoire.ingredients.size %>でingredientsのレコードを参照-->
+             <input type="hidden" id="number" value="<%= @repertoire.ingredients.size %>">
+             <div id="ingredient-form">
+              <div id="add-form">
+                <%= ingredient.text_field :name, placeholder: "追加する材料"  %>
+              </div>
+              <div id="add-form">
+                <%= ingredient.text_field :amount, placeholder: "追加する分量"  %>
+              </div>
+              <div id="add-form" class="delete" >
+                <button type="button" id="repertoire_ingredients_attributes__del" class="delete-btn" >
+                  削除
+                </button>
+              </div>
+            </div>
+            <% end %>
+          </div>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"repertoire-category"}) %>
-      </div>
-    </div>
+       
+       
+        <div class="add-form-btn">
+          <input type="button" value="材料を追加" id="add-btn">
+        </div>
+        
+    <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
 
 
-   <%= f.fields_for :ingredients do |ingredient| %>
-      <div class="weight-bold-text">
-          材料
-          <span class="indispensable">必須</span>
-      </div>
-      <div class="borderless-table">
-      <%= ingredient.collection_select(:serving_id, Serving.all, :id, :name, {}, {class:"serving-select-box", id:"ingredient-serving"}) %>
-        <table class="ingredients">
-          <%= ingredient.text_field :name, class:"ingredient-name",  placeholder: "例）たまご" %>
-          <%= ingredient.text_field :amount, class:"ingredient-amount", placeholder: "例) 1個" %>
-          <input type="button" value="削除" class="ingredient-btn" >
-        </table>
-        <input type="button" value="材料を追加" class="add-ingredient-btn" >
-      </div>
-    <% end %>
-
-
-    <div class="repertoire-explain">
+    <div class="repertoire-recipe">
       <div class="weight-bold-text">
         レシピ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（材料、分量、手順、など）
-      例）材料:生卵・・・1個
-              醤油・・・小さじ1
-              白米・・・茶碗1杯
- 
-              白米の上に卵を落とす。
-              醤油をかけて完成！！" ,rows:"7" %>
+      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（調理手順）
+      例 白米の上に卵を落とす。
+      醤油をかけて完成！！" %>
     </div>
-  </div>
 
     <div class="new-repertoire">
       <div class="weight-bold-text">
@@ -90,12 +116,14 @@
     </div>
 
     <div class="repertoire-post-btn-contents">
-      <%= f.submit "変更する" ,class:"repertoire-post-btn" %>
+      <%= f.submit "投稿する" ,class:"repertoire-post-btn" %>
       <%=link_to 'もどる', root_path, class:"repertoire-back-btn" %>
     </div>
-
+    
+    <% end %>
   </div>
-  <% end %>
+  
+</div>
 
   <footer class="repertoires-post-footer">
     <ul class="menu">
@@ -107,4 +135,3 @@
       ©︎Cookhack,Inc.
     </p>
   </footer>
-</div>

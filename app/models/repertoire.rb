@@ -7,6 +7,7 @@ class Repertoire < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :cooking_time
+  belongs_to :serving
 
   with_options presence: true do
     validates :image
@@ -15,8 +16,11 @@ class Repertoire < ApplicationRecord
     validates :comment
   end
 
-  validates :category_id,     numericality: { other_than: 1 , message: "が選択されていません" }
-  validates :cooking_time_id, numericality: { other_than: 1 , message: "が選択されていません" }
-
+  with_options numericality:
+   { other_than: 1 , message: "が選択されていません" } do
+    validates :category_id
+    validates :serving_id  
+    validates :cooking_time_id
+  end
 
 end

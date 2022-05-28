@@ -15,10 +15,14 @@
   width: 100%;
 }
 
+
+
+
+
+
 .repertoires-post-main {
   background-color: #fff;
   width: 50vw;
-  min-width: 450px;
   padding: 10vh 15vw;
   text-align: center;
 
@@ -32,6 +36,11 @@
   padding: 30px;
 }
 
+
+.form {
+  margin-bottom: 15px;
+}
+
 .indispensable {
   background: #ca8187;
   margin-left: 8px;
@@ -43,54 +52,11 @@
 }
 
 .weight-bold-text {
-  display: flex;
-  justify-content: center;
   font-weight: bold;
-  min-width: 170px;
-  margin: 10px;
-  font-size: 17px
-}
-
-.borderless_table {
+  min-width: 100%;
+  margin-bottom: 10px;
+  font-size: 17px;
   
-}
-
-.serving-select-box {
-  display: flex;
-  margin: 15px auto;
-  width: 10%;
-  height: 50px;
-  background-color: #f5f5f5;
-}
-
-.ingredient-name {
-  width: 25%;
-  height: 35px;
-  margin-right: 12px;
-}
-
-.ingredient-amount {
-  width: 23%;
-  height: 35px;
-  margin-left: 12px;
-}
-
-.ingredient-btn {
-  height: 35px;
-  margin-left: 10px;
-}
-
-.add-ingredient-btn {
-  padding: 5px;
-  margin: 30px;
-}
-
-
-.select-box {
-  height: 30px;
-  width: 100%;
-  background-color: #f5f5f5;
-  padding-left: 20px;
 }
 
 
@@ -113,9 +79,6 @@
 }
 
 
-.new-repertoire {
-  padding: 2vh 0;
-}
 
 .post-text {
   width: 65%;
@@ -124,18 +87,13 @@
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
+  margin-bottom: 15px;
 }
-
-.repertoire-text {
-  width: 65%;
-  font-size:15px;
-}
-
 
 .repertoire-detail {
   display: flex;
   justify-content: center;
-  padding: 2vh 0;
+
 }
 
 .repertoire-detail>.form {
@@ -145,12 +103,48 @@
 }
 
 .select-box {
-  margin: 2vh 0;
-  height: 60%;
+  height: 40px;
+  width: 50%;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.ingredient-group {
+  margin-bottom: 15px;
+}
+
+#add-form {
+  display: inline-block;
+  margin-bottom: 1px;
+}
+
+.add-form-btn {
+  margin-top: 5px;
+}
+
+.repertoire-recipe {
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.repertoire-text {
+  width: 60%;
+  min-width: 300px;
+  font-size:15px;
+  height: 150px;
+
+  
+}
+
+.new-repertoire {
+  align-items: center;
 }
 
 .comment-text{
+  width: 60%;
+  min-width: 300px;
   font-size:15px;
+  height: 150px;
 }
 
 
@@ -158,11 +152,6 @@
 
 
 
-.repertoire-post-btn-contents {
-  width: 100%;
-  height: 200px;
-  text-align: center;
-}
 
 .repertoire-post-btn {
   background: #be6f76;
@@ -190,11 +179,15 @@
 
 
 
+
+
+
+
 .repertoires-post-footer {
   background-color: #81cac4;
   border: solid 1px #fff;
   width: 100%;
-  padding: 3ch 0;
+  padding: 3ch ;
   display: flex;
   flex-direction: column;
   align-items: center;

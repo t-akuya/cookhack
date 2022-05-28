@@ -65,6 +65,7 @@
 .detail-table {
   margin-bottom: 30px;
   width: 100%;
+
 }
 
 .detail-repertoire {
@@ -80,6 +81,19 @@
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
+}
+
+.ingredients-data {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.ingredient-list {
+  list-style: none;
+  padding: 5px;
+  
 }
 
 .option {
