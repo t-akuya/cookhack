@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_035827) do
+ActiveRecord::Schema.define(version: 2022_04_22_053336) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,12 +33,22 @@ ActiveRecord::Schema.define(version: 2022_04_17_035827) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "amount", null: false
+    t.bigint "repertoire_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repertoire_id"], name: "index_ingredients_on_repertoire_id"
+  end
+
   create_table "repertoires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "cooking_time_id", null: false
     t.text "recipe", null: false
     t.text "comment", null: false
     t.integer "category_id", null: false
+    t.integer "serving_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,5 +74,6 @@ ActiveRecord::Schema.define(version: 2022_04_17_035827) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ingredients", "repertoires"
   add_foreign_key "repertoires", "users"
 end

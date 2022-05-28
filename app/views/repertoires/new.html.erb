@@ -6,7 +6,8 @@
   <div class="repertoires-post-main">
     <h2 class="repertoires-post-title">レパートリー料理を入力</h2>
 
-    <%= form_with model: @repertoire, url:repertoires_path, local: true do |f| %>
+    <%= form_with model: @repertoire, local: true do |f| %>
+
     <%= render 'devise/shared/error_messages', model: f.object %>
     
     <div class="img-upload">
@@ -29,39 +30,77 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"post-text", id:"repertoire-name", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
-    <div class="repertoire-detail">
-      <div class="form">
-      <div class="weight-bold-text">
-        調理時間
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"repertoire-cooking-time"}) %>
-      </div>
-      </div>
-    <div class="repertoire-detail">
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
+      <div class="repertoire-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            調理時間
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name, {}, {class:"select-box", id:"repertoire-cooking-time"}) %>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"repertoire-category"}) %>
       </div>
-    </div>
+      <div class="repertoire-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"repertoire-category"}) %>
+        </div>
+      </div>
 
-    <div class="repertoire-explain">
+      <div class="repertoire-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            人数
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:serving_id, Serving.all, :id, :name, {}, {class:"select-box", id:"repertoire-serving"}) %>
+        </div>
+      </div>
+
+      <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
+      <%= javascript_pack_tag 'addForm.js'%>
+      <div class="ingredient-group">
+        <%= f.fields_for :ingredients do |ingredient| %>
+          <input type="hidden" id="number" value="0" >
+          <div class="weight-bold-text">
+            材料
+            <span class="indispensable">必須</span>
+          </div>
+
+          <div id="ingredient-main">
+            <div id="ingredient-form">
+              <div id="add-form">
+                <%= ingredient.text_field :name, placeholder: "材料-1" %>
+              </div>
+              <div id="add-form">
+                <%= ingredient.text_field :amount, placeholder: "分量-1" %>
+              </div>
+              <div id="add-form" class="delete" >
+                <button type="button" id="repertoire_ingredients_attributes_del" class="delete-btn">
+                  削除
+                </button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="add-form-btn">
+          <input type="button" value="材料を追加" id="add-btn">
+        </div>
+    </div>
+    <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
+
+
+    <div class="repertoire-recipe">
       <div class="weight-bold-text">
         レシピ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（材料、分量、手順、など）
-      例）材料:生卵・・・1個
-              醤油・・・小さじ1
-              白米・・・茶碗1杯
- 
-              白米の上に卵を落とす。
-              醤油をかけて完成！！" ,rows:"7" %>
+      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（調理手順）
+      例 白米の上に卵を落とす。
+      醤油をかけて完成！！" %>
     </div>
-  </div>
 
     <div class="new-repertoire">
       <div class="weight-bold-text">
@@ -76,8 +115,9 @@
       <%=link_to 'もどる', root_path, class:"repertoire-back-btn" %>
     </div>
 
+    <% end %>
   </div>
-  <% end %>
+</div>
 
   <footer class="repertoires-post-footer">
     <ul class="menu">
@@ -89,4 +129,3 @@
       ©︎Cookhack,Inc.
     </p>
   </footer>
-</div>

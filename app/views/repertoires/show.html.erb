@@ -39,6 +39,29 @@
           <th class="detail-repertoire">カテゴリー</th>
           <td class="detail-value"><%= @repertoire.category.name %></td>
         </tr>
+
+        <tr>
+          <th class="detail-repertoire">人数</th>
+          <td class="detail-value"><%= @repertoire.serving.name %></td>
+        </tr>
+
+        <tr>
+          <th class="detail-repertoire">材料/分量</th>
+              <td class="ingredients-data">
+                  <% @repertoire.ingredients.each do |ingredient| %>
+                  <ul class="ingredient-list">
+                    <li><%= ingredient.name %> / <%= ingredient.amount %></li>
+                  </ul>
+                  <% end %>
+              </ul>
+              </td>
+          </th>
+        </tr>
+
+
+
+
+
         <tr>
           <th class="detail-repertoire">レシピ</th>
           <td class="detail-value"><%= @repertoire.recipe %></td>

@@ -6,8 +6,9 @@ class CreateRepertoires < ActiveRecord::Migration[6.0]
       t.text         :recipe,            null: false
       t.text         :comment,           null: false
       t.integer      :category_id,       null: false
+      t.integer      :serving_id,        null: false
       t.references   :user,              type: :bigint, null: false, foreign_key: true
-
+      
       t.timestamps
     end
   end

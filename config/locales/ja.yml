@@ -22,3 +22,8 @@ ja:
         category_id:            カテゴリー
         recipe:                 レシピ
         comment:                ひとことメモ
+
+      ingredient:
+        serving_id:             人数
+        name:                   材料名
+        amount:                 分量

@@ -82,13 +82,12 @@ ER図等を添付
 | recipe             | text       | null: false                   |
 | comment            | text       | null: false                   |
 | category_id        | integer    | null: false                   |
+| serving_id            | integer    | null: false                |
 | user               | references | null: false, foreign_key      |
-| ingredient         | references | null: false, foreign_key      |
 
 ### Association
 - belongs_to :user
-- has_many   :repertoire_ingredients
-- has_many   :ingredients, through: :repertoire_ingredients
+- has_many   :ingredients
 
 
 
@@ -97,24 +96,9 @@ ER図等を添付
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | name               | string     | null: false                   |
-| amount             | integer    | null: false                   |
-| unit_id            | integer    | null: false                   |
+| amount             | string     | null: false                   |
 | repertoire         | references | null: false,foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_many   :repertoire_ingredients
-- has_many   :repertoires, through: :repertoire_ingredients
-
-
-
-## repertoire_ingredients
-
-| Column             | Type       | Options                       |
-| ------------------ | ---------- | ----------------------------- |
-| repertoires        | references | null: false,foreign_key: true |
-| ingredients        | references | null: false,foreign_key: true |
-
-### Association
 - belongs_to :repertoires
-- belongs_to :ingredients

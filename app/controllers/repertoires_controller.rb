@@ -9,6 +9,7 @@ class RepertoiresController < ApplicationController
 
   def new
     @repertoire = Repertoire.new
+    @repertoire.ingredients.build
   end
 
   def create
@@ -21,7 +22,7 @@ class RepertoiresController < ApplicationController
   end
 
   def show
-
+    
   end
 
   def edit
@@ -31,6 +32,7 @@ class RepertoiresController < ApplicationController
   end
 
   def update
+    @repertoire.ingredients.destroy_all
     if @repertoire.update(repertoire_params)
       redirect_to repertoire_path
     else
@@ -51,7 +53,19 @@ end
 private
 
 def repertoire_params
-  params.require(:repertoire).permit(:image, :name, :cooking_time_id, :category_id, :recipe, :comment, :user_id).merge(user_id: current_user.id)
+  params.require(:repertoire)
+  .permit(
+    :image,
+    :name,
+    :cooking_time_id,
+    :category_id,
+    :serving_id,
+    :recipe,
+    :comment,
+    :user_id,
+    ingredients_attributes: [:id, :name, :amount, :_destroy]
+    )
+    .merge(user_id: current_user.id)
 end
 
 def set_action
