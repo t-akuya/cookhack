@@ -23,4 +23,15 @@ class Repertoire < ApplicationRecord
     validates :cooking_time_id
   end
 
+
+
+  #テーブルのやり取りに関するメソッドはモデルに書く
+  def self.search(search)
+    if search != ""
+      Repertoire.includes(:ingredients).joins(:ingredients).where(["ingredients.name LIKE(?)", "%#{search}%"])
+    else
+      Repertoire.all
+    end
+  end
+
 end

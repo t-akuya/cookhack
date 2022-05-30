@@ -3,8 +3,7 @@ class RepertoiresController < ApplicationController
   before_action :set_action, only: [:show, :edit, :update, :destroy]
 
   def index
-    @repertoires = Repertoire.includes(:user)
-    @repertoires = Repertoire.order("created_at DESC")
+    @repertoires = Repertoire.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -47,6 +46,10 @@ class RepertoiresController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @repertoires = Repertoire.search(params[:keyword])
+  end
+
 end
 
 
@@ -63,6 +66,7 @@ def repertoire_params
     :recipe,
     :comment,
     :user_id,
+
     ingredients_attributes: [:id, :name, :amount, :_destroy]
     )
     .merge(user_id: current_user.id)

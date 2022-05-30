@@ -6,4 +6,6 @@ class Ingredient < ApplicationRecord
     validates :amount
   end
 
+
+
 end
