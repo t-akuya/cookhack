@@ -20,10 +20,10 @@ ja:
         name:                   料理名
         cooking_time_id:        調理時間
         category_id:            カテゴリー
+        serving_id:             人数
         recipe:                 レシピ
         comment:                ひとことメモ
 
-      ingredient:
-        serving_id:             人数
+      ingredients:
         name:                   材料名
         amount:                 分量

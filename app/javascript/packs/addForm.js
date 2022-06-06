@@ -1,3 +1,4 @@
+let inputNum = 1
 let i = 1
 
 //ページがロードされると...
@@ -5,7 +6,6 @@ window.addEventListener("load", function () {
   
   //材料追加ボタンの要素をidから取得
   const addButton = document.getElementById("add-btn");
-  let inputNum = document.getElementById("number").value;
 
   //取得したボタンをクリックすると...
   addButton.addEventListener("click", function() {
@@ -42,8 +42,6 @@ window.addEventListener("load", function () {
     //この一行での処理を要約すると、
     //『(html)を複製(insertAdjacentHTML)し、(formList)の末尾(beforeend)に挿入する』
     formList.insertAdjacentHTML('beforeend', html);
-
-
 
 
     //全ての削除ボタンを取得、deleteBtnsに定義する

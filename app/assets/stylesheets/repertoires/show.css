@@ -5,7 +5,6 @@
 
 
 .repertoire-box {
-  background-color: #FFF;
   min-width: 120px;
   padding: 10vh 15vw;
   display: flex;
@@ -36,13 +35,12 @@
 
 .repertoire-red-btn {
   text-align: center;
-  background-color: #cf646d;
+  background-color: #ca8187;
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
-  margin: 30px auto;
+
   padding: 3vh 10vw;
-  width: 50%;
 }
 
 
@@ -53,27 +51,20 @@
   color: black;
   margin: 30px auto;
   padding: 3vh 10vw;
-  width: 50%;
-}
-
-.repertoire-explain-box {
-  font-size: 18px;
-  margin: 40px 0px;
-  overflow-wrap: anywhere;
 }
 
 .detail-table {
   margin-bottom: 30px;
   width: 100%;
-
 }
 
 .detail-repertoire {
   width: 20%;
-  background-color: #eee;
+  background-color: #81cac4;
   border: 1px solid #dedede;
   font-size: 14px;
   text-align: center;
+  color: #fff;
 }
 
 .detail-value {
@@ -81,6 +72,7 @@
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
+  color: rgb(69, 69, 69);
 }
 
 .ingredients-data {
@@ -88,6 +80,7 @@
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
+  color: rgb(69, 69, 69);
 }
 
 .ingredient-list {
@@ -106,15 +99,15 @@
   border-radius: 40px;
   width: 15vw;
   min-width: 200px;
-  color: rgb(249, 75, 0);
-  border: 2px solid #ffb340;
+  color: #ca8187;
+  border: 2px solid #ca8187;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
 }
 
-.favorite-star-icon {
+.favorite-heart-icon {
   margin-right: 5px;
 }
 
@@ -156,7 +149,6 @@
   padding: 10px;
   font-size: 14px;
   margin: 10px 0px;
-  text-align: left;
 }
 
 .comment-btn {

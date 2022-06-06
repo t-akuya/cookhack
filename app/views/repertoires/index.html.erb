@@ -20,7 +20,7 @@
 
   <div class='search-bar-contents'>
     <%= form_with url: search_repertoires_path, local: true, method: :get, class: "search-form" do |f| %>
-      <%= f.text_field :keyword, placeholder: "食材から検索する", class: "search-input" %>
+      <%= f.text_field :keyword, placeholder: "食材or料理名から検索", class: "search-input" %>
       <div class="search-button">
         <%= image_submit_tag("search.png", class: 'search-icon')%>
       </div>
@@ -29,16 +29,13 @@
 
 
   <div class='repertoire-contents'>
-    <h2 class='title'>みんなのレパートリー</h2>
     <ul class='repertoire-lists'>
-
       <% @repertoires.each do |repertoire| %>
         <li class='list'>
           <%= link_to repertoire_path(repertoire.id) do %>
           <div class='repertoire-img-content'>
             <%= image_tag repertoire.image, class: "repertoire-img" %>
           </div>
-
 
           <div class='repertoire-info'>
             <h3 class='repertoire-name'>
@@ -50,9 +47,9 @@
             <div class='repertoire-cateegory'>
               <span><%= repertoire.category.name %></span>
 
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+              <div class='heart-btn'>
+                <%= image_tag "heart.png", class:"heart-icon" %>
+                <span class='heart-count'>0</span>
               </div>
 
             </div>
@@ -60,9 +57,9 @@
           <% end %>
         </li>
       <% end %>
-      
+    </ul>  
 
-      
+    <ul class='repertoire-lists'>  
       <% if @repertoires.blank? %> 
         <li class='list'>
           <%= link_to '#' do %>
