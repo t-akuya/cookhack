@@ -1,4 +1,5 @@
 class Repertoire < ApplicationRecord
+  
   has_one_attached :image
   belongs_to :user
   has_many :ingredients, dependent: :destroy
@@ -14,6 +15,7 @@ class Repertoire < ApplicationRecord
     validates :name, length: {maximum: 40}
     validates :recipe
     validates :comment
+    validates :ingredients
   end
 
   with_options numericality:
@@ -28,9 +30,9 @@ class Repertoire < ApplicationRecord
   #テーブルのやり取りに関するメソッドはモデルに書く
   def self.search(search)
     if search != ""
-      Repertoire.includes(:ingredients).joins(:ingredients).where(["ingredients.name LIKE(?)", "%#{search}%"])
+      Repertoire.includes(:ingredients).where(['repertoires.name LIKE ? OR ingredients.name LIKE ?', "%#{search}%", "%#{search}%"]).references(:ingredient)
     else
-      Repertoire.all
+      Repertoire.all.order('created_at DESC')
     end
   end
 
