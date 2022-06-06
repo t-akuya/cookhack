@@ -1,8 +1,5 @@
-
-
 .ad-footer-contents {
-  
-  background-image: image-url('orange.jpg');
+  background-image: url('tomato.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -11,6 +8,7 @@
   justify-content: center;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  padding: 50px 0;
 }
 
 .ad-footer-title {

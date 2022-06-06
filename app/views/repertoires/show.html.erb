@@ -9,16 +9,14 @@
     <div class="repertoire-img-content">
       <%= image_tag @repertoire.image ,class:"repertoire-box-img" %>
 
-
-
-  <div class= post-edit-btn>
-  <% if user_signed_in? %>
-    <% if current_user.id == @repertoire.user_id %>
-    <%= link_to "この投稿を編集", edit_repertoire_path, method: :get, class: "repertoire-red-btn" %>
-    <%= link_to "削除", repertoire_path(@repertoire.id), method: :delete, class:"repertoire-destroy" %>
+    <div class= post-edit-btn>
+    <% if user_signed_in? %>
+      <% if current_user.id == @repertoire.user_id %>
+      <%= link_to "この投稿を編集", edit_repertoire_path, method: :get, class: "repertoire-red-btn" %>
+      <%= link_to "削除", repertoire_path(@repertoire.id), method: :delete, class:"repertoire-destroy" %>
+      <% end %>
     <% end %>
-  <% end %>
-  </div>
+    </div>
 
 
     <table class="detail-table">
@@ -58,10 +56,6 @@
           </th>
         </tr>
 
-
-
-
-
         <tr>
           <th class="detail-repertoire">レシピ</th>
           <td class="detail-value"><%= @repertoire.recipe %></td>
@@ -72,9 +66,11 @@
         </tr>
       </tbody>
     </table>
+
+
     <div class="option">
       <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <%= image_tag "heart.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
         <span>お気に入り 0</span>
       </div>
       <div class="report-btn">

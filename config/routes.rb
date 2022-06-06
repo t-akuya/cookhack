@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root to: 'repertoires#index'
   
   resources :repertoires do
-    resource :ingredients
+    resources :ingredients
+      collection do
+        get 'search'
+      end
   end
     
 
