@@ -82,7 +82,7 @@ ER図等を添付
 | recipe             | text       | null: false                   |
 | comment            | text       | null: false                   |
 | category_id        | integer    | null: false                   |
-| serving_id            | integer    | null: false                |
+| serving_id         | integer    | null: false                   |
 | user               | references | null: false, foreign_key      |
 
 ### Association
@@ -98,6 +98,8 @@ ER図等を添付
 | name               | string     | null: false                   |
 | amount             | string     | null: false                   |
 | repertoire         | references | null: false,foreign_key: true |
+| conversion_name    | string     | 															|
+
 
 ### Association
 - belongs_to :user
