@@ -1,0 +1,26 @@
+
+.hack-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(214, 201, 185);
+}
+
+.cooking_hack-info {
+  text-align: center;
+}
+
+
+.hack-img {
+  width: 28vh;
+  height: 18vh;
+}
+
+.cooking_hack-title {
+ color: #000;
+ font-size: 1vw;
+}
+
+.heart-count {
+  color: #000
+}
