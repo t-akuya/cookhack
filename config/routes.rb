@@ -8,6 +8,8 @@ Rails.application.routes.draw do
         get 'search'
       end
   end
+
+  resources :cooking_hacks, only: :index
     
 
 end
