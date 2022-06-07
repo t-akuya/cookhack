@@ -4,7 +4,7 @@ class RepertoiresController < ApplicationController
 
   def index
     @repertoires = Repertoire.includes(:user).order("created_at DESC")
-
+    @cooking_hacks = CookingHack.all
   end
 
   def new
