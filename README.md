@@ -64,8 +64,7 @@ ER図等を添付
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
 | title              | string     | null: false                   |
-| summary            | text       | null: false                   |
-| process            | text       | null: false                   |
+| contents           | text       | null: false                   |
 | user               | references | null: false                   |
 
 ### Association
