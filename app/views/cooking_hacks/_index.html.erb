@@ -1,32 +1,32 @@
-  <div class='cooking_hack-contents' id="cooking_hack-head">
+  <div class='cooking_hack-contents'>
     <ul class='cooking_hack-lists'>
-      <% @cooking_hacks.each do |cooking_hack| %>
-        <li class='hack-list'>
-          <div class='cooking_hack-img'>
+      <span class='hack-list-name'>Hack一覧</span>
+      <li class='hack-list'>
+        <% @cooking_hacks.each do |cooking_hack| %>
+          <div class='cooking_hack-item'>
             <%#= link_to 詳細ページへのパス do %>
-            <%#= 画像タグ  %>
-          </div>
-
-          <div class='cooking_hack-info'>
-            <h3 class='cooking_hack-title'>
-              <%= cooking_hack.title %>
-            </h3>
-            <div class='heart-btn'>
-              <%= image_tag "heart.png", class:"heart-icon" %>
-              <span class='heart-count'>0</span>
+            <%= image_tag cooking_hack.hack_image, class: "hack-img" %>
+          
+            <div class='cooking_hack-info'>
+              <div class='cooking_hack-title'>
+                <%= cooking_hack.title %>
+              </div>
+              <div class='heart-btn'>
+                <%= image_tag "heart.png", class:"heart-icon" %>
+                <span class='heart-count'>0</span>
+              </div>
             </div>
           </div>
-        </li>
-      <% end %>
+        <% end %>
+      </li>
     </ul>  
 
     <ul class='cooking_hack-lists'>  
-      <% if @cooking_hack.blank? %> 
+      <% if @cooking_hacks.blank? %> 
         <li class='hack-list'>
           <div class='cooking_hack-img'>
             <%= link_to '#' do %>
             <%= image_tag "sample-hotcake.png", class: "hack-img" %>
-          </div>
           <div class='cooking_hack-info'>
             <h3 class='cooking_hack-title'>
               あなたのハックを投稿してね！

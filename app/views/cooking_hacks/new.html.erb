@@ -1,0 +1,50 @@
+<div class="repertoires-post-contents">
+  <header class="repertoires-post-header">
+    <%= link_to image_tag('cook-hack-logo3shiro.png'), "/" %>
+  </header>
+
+  <div class="repertoires-post-main">
+    <h2 class="repertoires-post-title">Hack情報を入力</h2>
+
+    <%= form_with model: @cooking_hack, local: true do |f| %>
+
+    <%= render 'devise/shared/error_messages', model: f.object %>
+    
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :hack_image, id:"repertoire-image" %>
+      </div>
+    </div>
+
+    <div class="new-repertoire">
+      <div class="weight-bold-text">
+        Hackタイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"post-text", id:"repertoire-name", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+
+    <div class="new-repertoire">
+      <div class="weight-bold-text">
+        手順
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :contents, class:"comment-text", id:"repertoire-comment", placeholder:"時短テクニックの内容" %>
+    </div>
+
+    <div class="repertoire-post-btn-contents">
+      <%= f.submit "投稿する" ,class:"repertoire-post-btn" %>
+      <%=link_to 'もどる', root_path, class:"repertoire-back-btn" %>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+
+<%= render "devise/shared/sub-footer" %>
