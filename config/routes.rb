@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       end
   end
 
-  resources :cooking_hacks, only: :index
+  resources :cooking_hacks, only: [:new, :create]
     
 
 end
