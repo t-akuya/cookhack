@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :repertoires
+  has_many :cooking_hacks
+
   with_options presence: true do
     validates :nickname
     validates :first_name,      format: { with: /\A[ぁ-んァ-ヶ一-龥々]/ }
@@ -14,8 +17,5 @@ class User < ApplicationRecord
   end
 
   validates :password,          format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
-
-  has_many :repertoires
-
 
 end

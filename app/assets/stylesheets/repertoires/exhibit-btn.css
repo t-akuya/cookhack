@@ -1,13 +1,15 @@
 .post-btn {
   width: 120px;
+  height: 120px;
   background: #81cac4;
   text-align: center;
   border-radius: 4%;
-  bottom: 32px;
+  bottom: 185px;
   right: 32px;
   position: fixed;
   padding: 15px;
   border: solid 1px #fff;
+
 }
 
 .post-btn-text {
@@ -19,5 +21,30 @@
 }
 
 .post-btn-icon {
+  width: 57%;
+}
+
+.hack-post-btn-icon {
   width: 60%;
+  margin-top: 18px;
+}
+
+.hack-post-btn {
+  width: 120px;
+  height: 120px;
+  background: #ca8187;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  border: solid 1px #fff;
+}
+
+.post-title {
+  font-size: 12px;
+  white-space: nowrap;
+  margin: 10px 10px;
+  color: #fff;
 }
