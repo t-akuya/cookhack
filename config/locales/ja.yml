@@ -29,5 +29,6 @@ ja:
         amount:                 分量
 
       cooking_hack:
-        title:                  タイトル
+        hack_image:             画像
+        title:                  Hackタイトル
         contents:               時短テクニックの内容
