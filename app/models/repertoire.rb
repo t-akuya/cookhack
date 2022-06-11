@@ -15,7 +15,6 @@ class Repertoire < ApplicationRecord
     validates :name, length: {maximum: 40}
     validates :recipe
     validates :comment
-    validates :ingredients
   end
 
   with_options numericality:

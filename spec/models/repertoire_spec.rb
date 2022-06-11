@@ -57,6 +57,14 @@ RSpec.describe Repertoire, type: :model do
         expect(@repertoire.errors.full_messages).to include("調理時間が選択されていません")
       end
 
+
+      it "人数が未選択では投稿できない" do
+        @repertoire.serving_id = 1
+        @repertoire.valid?
+        expect(@repertoire.errors.full_messages).to include("人数が選択されていません")
+      end
+
+
     end
   end
 end

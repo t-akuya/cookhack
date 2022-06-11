@@ -7,10 +7,13 @@ FactoryBot.define do
     recipe                    {"テストてすとtest"}
     comment                   {"テストてすとtest"}
     category_id               {Faker::Number.between(from: 2, to: 6)} 
+    
+    serving_id                {Faker::Number.between(from: 2, to: 6)}
+    
 
     after(:build) do |repertoire|
-      repertoire.image.attach(io: File.open('app/assets/images/blue.jpeg'), filename: 'blue.jpeg')
+      repertoire.image.attach(io: File.open('app/assets/images/blue.jpeg'), filename: 'blue.jpeg', content_type: 'image/png')
     end
-
   end
+
 end
