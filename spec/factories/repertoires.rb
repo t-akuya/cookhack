@@ -7,7 +7,6 @@ FactoryBot.define do
     recipe                    {"テストてすとtest"}
     comment                   {"テストてすとtest"}
     category_id               {Faker::Number.between(from: 2, to: 6)} 
-    
     serving_id                {Faker::Number.between(from: 2, to: 6)}
     
 
