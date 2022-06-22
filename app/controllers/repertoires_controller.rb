@@ -20,9 +20,9 @@ class RepertoiresController < ApplicationController
       #材料名に漢字が含まれていれば...
       if ingredient.name.match?(/\p{Han}/)
         #材料名をひらがな変換→さらにローマ字変換し、左辺に代入
-        ingredient.conversion_name = ingredient.name.to_kanhira.to_roman
-      #全てカタカナ、もしくは(||)ひらがなの場合、ローマ字に変換、左辺に代入
-      elsif ingredient.name.is_hira? || ingredient.name.is_kana?
+        ingredient.conversion_name = ingredient.name.to_kanhira.to_kana.to_roman
+        #全てカタカナ、もしくは(||)ひらがなの場合、ローマ字に変換、左辺に代入
+      elsif ingredient.name.is_hira? || ingredient.name.is_kana? || ingredient.name.is_japanese?
         ingredient.conversion_name = ingredient.name.to_roman
       else #どちらでもない場合、入力された材料名はローマ字と判断、そのまま代入
         ingredient.conversion_name = ingredient.name

@@ -1,6 +1,6 @@
 .post-btn {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   background: #81cac4;
   text-align: center;
   border-radius: 4%;
@@ -15,7 +15,7 @@
 .post-btn-text {
   color: #fff;
   display: block;
-  font-size: 18px;
+  font-size: 12px;
   text-decoration: none;
   margin-bottom: 5px;
 }
@@ -30,8 +30,8 @@
 }
 
 .hack-post-btn {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   background: #ca8187;
   text-align: center;
   border-radius: 4%;
