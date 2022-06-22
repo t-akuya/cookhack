@@ -59,39 +59,37 @@
       </div>
 
 
-      <div class="weight-bold-text">
-        材料
-        <span class="indispensable">必須</span>
-      </div>
+      
       <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
       <%= javascript_pack_tag 'editAddForm.js'%>
-
-       
         <div class="ingredient-group">
-          <div id="ingredient-main">
-            <%= f.fields_for :ingredients,  include_id: false do |ingredient| %>
+          <%= f.fields_for :ingredients,  include_id: false do |ingredient| %>
             <!--<%= @repertoire.ingredients.size %>でingredientsのレコードを参照-->
-             <input type="hidden" id="number" value="<%= @repertoire.ingredients.size %>">
-             <div id="ingredient-form">
-              <div id="add-form">
-                <%= ingredient.text_field :name, placeholder: "追加する材料"  %>
-              </div>
-              <div id="add-form">
-                <%= ingredient.text_field :amount, placeholder: "追加する分量"  %>
-              </div>
-              <div id="add-form" class="delete" >
-                <button type="button" id="repertoire_ingredients_attributes__del" class="delete-btn" >
-                  削除
-                </button>
-              </div>
+            <input type="hidden" id="number" value="<% @repertoire.ingredients.size %>">
+            <div class="weight-bold-text">
+              材料
+              <span class="indispensable">必須</span>
             </div>
-            <% end %>
+
+            <div id="ingredient-main">
+              <div id="ingredient-form">
+                <div id="add-form">
+                  <%= ingredient.text_field :name, placeholder: "追加する材料"  %>
+                </div>
+                <div id="add-form">
+                  <%= ingredient.text_field :amount, placeholder: "追加する分量"  %>
+                </div>
+                <div id="add-form" class="delete" >
+                  <button type="button" id="repertoire_ingredients_attributes__del" class="delete-btn" >
+                    削除
+                  </button>
+                </div>
+              </div>  
+            </div>
+          <% end %>
+          <div class="add-form-btn">
+            <input type="button" value="材料を追加" id="add-btn">
           </div>
-        </div>
-       
-       
-        <div class="add-form-btn">
-          <input type="button" value="材料を追加" id="add-btn">
         </div>
         
     <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
