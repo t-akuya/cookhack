@@ -61,34 +61,34 @@
 
       <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
       <%= javascript_pack_tag 'addForm.js'%>
-      <div class="ingredient-group">
-        <%= f.fields_for :ingredients do |ingredient| %>
-          <input type="hidden" id="number" value="0" >
-          <div class="weight-bold-text">
-            材料
-            <span class="indispensable">必須</span>
-          </div>
+        <div class="ingredient-group">
+          <%= f.fields_for :ingredients do |ingredient| %>
+            <input type="hidden" id="number" value="0" >
+            <div class="weight-bold-text">
+              材料
+              <span class="indispensable">必須</span>
+            </div>
 
-          <div id="ingredient-main">
-            <div id="ingredient-form">
-              <div id="add-form">
-                <%= ingredient.text_field :name, placeholder: "材料-1" %>
-              </div>
-              <div id="add-form">
-                <%= ingredient.text_field :amount, placeholder: "分量-1" %>
-              </div>
-              <div id="add-form" class="delete" >
-                <button type="button" id="repertoire_ingredients_attributes_del" class="delete-btn">
-                  削除
-                </button>
+            <div id="ingredient-main">
+              <div id="ingredient-form">
+                <div id="add-form">
+                  <%= ingredient.text_field :name, placeholder: "材料-1" %>
+                </div>
+                <div id="add-form">
+                  <%= ingredient.text_field :amount, placeholder: "分量-1" %>
+                </div>
+                <div id="add-form" class="delete" >
+                  <button type="button" id="repertoire_ingredients_attributes_del" class="delete-btn">
+                    削除
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-        <div class="add-form-btn">
-          <input type="button" value="材料を追加" id="add-btn">
+          <% end %>
+            <div class="add-form-btn">
+              <input type="button" value="材料を追加" id="add-btn">
+            </div>
         </div>
-    </div>
     <!--動的に追加、削除できる材料、分量のフォーム 別テーブル(ingredients)に保存-->
 
 
@@ -97,9 +97,7 @@
         レシピ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（調理手順）
-      例 白米の上に卵を落とす。
-      醤油をかけて完成！！" %>
+      <%= f.text_area :recipe, class:"repertoire-text", id:"repertoire-info", placeholder:"レシピ（調理手順）" %>
     </div>
 
     <div class="new-repertoire">
@@ -107,7 +105,7 @@
         ひとことメモ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :comment, class:"comment-text", id:"repertoire-comment", placeholder:"醤油のかけすぎに注意！" %>
+      <%= f.text_area :comment, class:"comment-text", id:"repertoire-comment", placeholder:"コツや時短になるポイントなど" %>
     </div>
 
     <div class="repertoire-post-btn-contents">

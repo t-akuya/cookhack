@@ -22,22 +22,22 @@ window.addEventListener("load", function () {
     const html = `<div id="ingredient-main">
                     <div id="ingredient-form">
                       <div id="add-form">
-                      <input placeholder="追加する材料${i}" type="text" 
-                      name="repertoire[ingredients_attributes][${inputNum}][name]" id="repertoire_ingredients_attributes_${inputNum}_name">
+                        <input placeholder="追加する材料${i}" type="text"
+                        name="repertoire[ingredients_attributes][${inputNum}][name]" id="repertoire_ingredients_attributes_${inputNum}_name">
                       </div>
                       <div id="add-form">
-                      <input placeholder="追加する分量${i}" type="text" 
-                      name="repertoire[ingredients_attributes][${inputNum}][amount]" id="repertoire_ingredients_attributes_${inputNum}_amount">
+                        <input placeholder="追加する分量${i}" type="text"
+                        name="repertoire[ingredients_attributes][${inputNum}][amount]" id="repertoire_ingredients_attributes_${inputNum}_amount">
                       </div>
                       <div id="add-form" class="delete" >
                         <button type="button" name="repertoire[ingredients_attributes][${inputNum}][del]" id="repertoire_ingredients_attributes_${inputNum}_del" class="delete-btn" >
-                        削除
-                      </button>
+                         削除
+                        </button>
                       </div>
                     </div>
                   </div>`;
 
-    //insertAdjacentHTMLでノードを複製、挿入場所を16行目で定義したformList内に指定する。
+    //insertAdjacentHTMLでノードを複製、挿入場所を17行目で定義したformList内に指定する。
     //引数のbeforeendで複製場所を末尾に指定,htmlで複製するものを指定する。
     //この一行での処理を要約すると、
     //『(html)を複製(insertAdjacentHTML)し、(formList)の末尾(beforeend)に挿入する』
@@ -50,14 +50,16 @@ window.addEventListener("load", function () {
      deleteBtns.forEach((btn) => {
        //複数の削除ボタン=deleteBtns要素=(btn)をクリックすると引数del(64行目)の関数が発火
        btn. addEventListener('click', del)
-    
      })
-
   })
     
+     //全ての削除ボタンを取得、deleteBtnsに定義する
+    //クリックイベントの関数内に記述することで追加ボタンを押下しないと削除ボタンが作動しないようにしている
     const deleteBtns = document.querySelectorAll('.delete-btn')
 
+    //削除ボタンをforEachで繰り返し処理
     deleteBtns.forEach((btn) => {
+      //deleteBtns要素(btn)をクリックすると53行目sample関数が実行される
       btn. addEventListener('click', del)
     })
 
@@ -68,5 +70,4 @@ window.addEventListener("load", function () {
       this.parentNode.parentNode.remove()
     }
   
- 
 })
