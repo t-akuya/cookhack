@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Repertoires", type: :system do
+RSpec.describe "レパートリー投稿", type: :system do
   before do
     @user = FactoryBot.create(:user)
     @repertoire = FactoryBot.build(:repertoire)
@@ -114,5 +114,56 @@ RSpec.describe 'レパートリー編集', type: :system do
       expect(page).to have_no_link 'この投稿を編集', href: edit_repertoire_path(@repertoire2)
     end
   end
+end
 
+
+RSpec.describe 'レパートリー削除', type: :system do
+  before do
+    @repertoire1 = FactoryBot.create(:repertoire)
+    @ingredient1 = FactoryBot.create(:ingredient, repertoire: @repertoire1)
+
+    @repertoire2 = FactoryBot.create(:repertoire)
+    @ingredient2 = FactoryBot.create(:ingredient, repertoire: @repertoire2)
+  end
+
+  context 'レパートリーが削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿したレパートリーの削除ができる' do
+      # レパートリー1を投稿したユーザーでログインする
+      sign_in(@repertoire1.user)
+      # レパートリー1の詳細ページに遷移する
+      visit repertoire_path(@repertoire1)
+      # レパートリー1の詳細ページに削除ボタンがあることを確認する
+      expect(page).to have_content('削除')
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find('.repertoire-destroy').click
+      }.to change { Repertoire.count }.by(-1)
+      # トップページに遷移したことを確認する
+      expect(current_path).to eq(root_path)
+      # トップページにはレパートリー1の内容が存在しないことを確認する（画像）
+      expect(page).to have_no_selector "img[src$='test_image2.png']"
+    end
+  end
+  context 'レパートリー削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したレパートリーの削除ができない' do
+      # レパートリー1を投稿したユーザーでログインする
+      sign_in(@repertoire1.user)
+      # レパートリー2の詳細ページに遷移する
+      visit repertoire_path(@repertoire2)
+      # 削除ボタンがないことを確認する
+      expect(page).to have_no_content('.repertoire-destroy')
+    end
+    it 'ログインしていないとレパートリーの削除ボタンがない' do
+      # トップページに移動する
+      visit root_path
+      # レパートリー1の詳細ページに遷移する
+      visit repertoire_path(@repertoire1)
+      # 削除ボタンがないことを確認する
+      expect(page).to have_no_content('.repertoire-destroy')
+      # レパートリー1の詳細ページに遷移する
+      visit repertoire_path(@repertoire2)
+      # 削除ボタンがないことを確認する
+      expect(page).to have_no_content('.repertoire-destroy')
+    end
+  end
 end
