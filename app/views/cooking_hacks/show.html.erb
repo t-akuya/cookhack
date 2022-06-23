@@ -1,0 +1,87 @@
+<%= render "shared/header" %>
+
+
+<div class="repertoire-show">
+  <div class="repertoire-box">
+    <h2 class="name">
+      <%= @cooking_hack.title %>
+    </h2>
+    <div class="repertoire-img-content">
+      <%= image_tag @cooking_hack.hack_image ,class:"repertoire-box-img" %>
+
+    <div class= post-edit-btn>
+    <% if user_signed_in? %>
+      <% if current_user.id == @cooking_hack.user_id %>
+      <%#= link_to "この投稿を編集", path , method: :get, class: "" %>
+      <%#= link_to "削除", _path(@.id), method: :delete, class:"" %>
+      <% end %>
+    <% end %>
+    </div>
+
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-repertoire">投稿者</th>
+          <td class="detail-value"><%= @cooking_hack.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-repertoire">裏技タイトル</th>
+          <td class="detail-value"><%= @cooking_hack.title %></td>
+        </tr>
+        <tr>
+          <th class="detail-repertoire">裏技手順</th>
+          <td class="detail-value"><%= @cooking_hack.contents %></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "heart.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な裏技の通報</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  
+  <div class="links">
+    <div class="change-repertoire-btn">
+      <% if @cooking_hack.previous.present? %>
+        <%= link_to '＜前の裏技へ',cooking_hack_path(@cooking_hack.previous) %>
+      <% end %>
+    </div>
+    <div class="change-repertoire-btn">
+      <% if @cooking_hack.next.present? %>
+        <%= link_to '次の裏技へ＞', cooking_hack_path(@cooking_hack.next) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="return-page">
+    <%= link_to 'トップページへ戻る', root_path %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>

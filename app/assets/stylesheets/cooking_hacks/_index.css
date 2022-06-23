@@ -7,21 +7,18 @@
   color: #fff;
   border-radius: 50%;
   background-color: #ca8187;
-  font-size: large;
+  font-size: 100%;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5vh;
+  width: 4vw;
   max-width: 100%;
-  height: 5vh;
+  height: 4vw;
   margin: 10px auto;
   text-align: center;
   padding: 35px;
-  
 }
-
-
 
 
 .hack-list{
@@ -32,8 +29,8 @@
 }
 
 .hack-img {
-  width: 18vh;
-  height: 18vh;
+  width: 8vw;
+  height: 8vw;
   border-radius: 50%;
 }
 
@@ -44,14 +41,15 @@
 
 .cooking_hack-title {
   width: 150px;
-  font-size: 1vh;
+  font-size: 20px;
   margin: 0 auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
+  color: #000;
 }
 
 .heart-btn {
-  font-size: 5px;
+  font-size: 10px;
+  color: #000;
 }

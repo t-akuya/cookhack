@@ -95,16 +95,25 @@
       </button>
     </form>
   </div>
+
   <div class="links">
-    <a href="#" class="change-repertoire-btn">
-      ＜ 前のレシピ
-    </a>
-    <a href="#" class="change-repertoire-btn">
-      次のレシピ ＞
-    </a>
+    <div class="change-repertoire-btn">
+      <% if @repertoire.previous.present? %>
+        <%= link_to '＜前の裏技へ', repertoire_path(@repertoire.previous) %>
+      <% end %>
+    </div>
+    <div class="change-repertoire-btn">
+      <% if @repertoire.next.present? %>
+        <%= link_to '次の裏技へ＞', repertoire_path(@repertoire.next) %>
+      <% end %>
+    </div>
   </div>
 
   <a href="#" class="another-repertoire"><%= @repertoire.category.name %>をもっと見る</a>
+
+  <div class="return-page">
+    <%= link_to 'トップページへ戻る', root_path %>
+  </div>
 
 </div>
 
