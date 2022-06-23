@@ -12,11 +12,11 @@
     <div class= post-edit-btn>
     <% if user_signed_in? %>
       <% if current_user.id == @cooking_hack.user_id %>
-      <%#= link_to "この投稿を編集", path , method: :get, class: "" %>
-      <%#= link_to "削除", _path(@.id), method: :delete, class:"" %>
+      <%= link_to "この投稿を編集", edit_cooking_hack_path, method: :get, class: "repertoire-red-btn" %>
       <% end %>
     <% end %>
     </div>
+
 
 
     <table class="detail-table">
