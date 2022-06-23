@@ -16,6 +16,10 @@ class CookingHacksController < ApplicationController
     end
   end
 
+  def show
+    @cooking_hack = CookingHack.find(params[:id])
+  end
+
   private
   def cooking_hack_params
     params.require(:cooking_hack)

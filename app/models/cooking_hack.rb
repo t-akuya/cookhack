@@ -9,4 +9,12 @@ class CookingHack < ApplicationRecord
     validates :hack_image
   end
 
+  def previous
+    CookingHack.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    CookingHack.where("id > ?", self.id).order("id ASC").first
+  end
+
 end

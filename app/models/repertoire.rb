@@ -35,4 +35,12 @@ class Repertoire < ApplicationRecord
     end
   end
 
+  def previous
+    Repertoire.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Repertoire.where("id > ?", self.id).order("id ASC").first
+  end
+
 end
