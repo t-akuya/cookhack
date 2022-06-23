@@ -25,6 +25,8 @@
   width: 600px;
   min-height: 500px;
   object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
 .post-edit-btn {
@@ -39,7 +41,7 @@
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
-
+  margin: 10px;
   padding: 3vh 10vw;
 }
 
@@ -68,11 +70,11 @@
 }
 
 .detail-value {
-  width: 80%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
   color: rgb(69, 69, 69);
+  
 }
 
 .ingredients-data {

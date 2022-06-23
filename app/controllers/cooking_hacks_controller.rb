@@ -1,4 +1,7 @@
 class CookingHacksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_action, only: [:show, :edit, :update]
+
   def index
     @cooking_hacks = CookingHack.all
   end
@@ -17,14 +20,30 @@ class CookingHacksController < ApplicationController
   end
 
   def show
-    @cooking_hack = CookingHack.find(params[:id])
   end
+
+  def edit
+  end
+
+
+  def update
+    if @cooking_hack.update(cooking_hack_params)
+      redirect_to cooking_hack_path
+    else
+      render :edit
+    end
+  end
+
 
   private
   def cooking_hack_params
     params.require(:cooking_hack)
     .permit(:hack_image, :title, :contents, :user_id)
     .merge(user_id: current_user.id)
+  end
+
+  def set_action
+    @cooking_hack = CookingHack.find(params[:id])
   end
 
 end
