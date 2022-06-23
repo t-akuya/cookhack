@@ -1,0 +1,26 @@
+.contents-row {
+  background-color: #d2d2d2;
+}
+
+.my-name {
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+  color: #e8e8e8;
+  background-color: #81cac4;
+}
+
+.repertoire-lists {
+  margin: 30px auto;
+}
+
+
+.hack-list {
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.return-page {
+  text-align: center;
+  padding: 20px;
+}
