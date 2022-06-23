@@ -1,6 +1,6 @@
 class CookingHacksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_action, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_action, only: [:show, :edit, :update, :destroy]
 
   def index
     @cooking_hacks = CookingHack.all
@@ -32,6 +32,13 @@ class CookingHacksController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @cooking_hack.user_id == current_user.id
+      @cooking_hack.destroy
+    end
+    redirect_to root_path
   end
 
 

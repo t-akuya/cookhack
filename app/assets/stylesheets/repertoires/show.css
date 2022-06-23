@@ -32,17 +32,17 @@
 .post-edit-btn {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 .repertoire-red-btn {
-  text-align: center;
   background-color: #ca8187;
+  text-align: center;
   font-size: 24px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 10px;
-  padding: 3vh 10vw;
+  color: #fff;
+  margin: 30px auto;
+  padding: 4vh 10vw;
+
 }
 
 
