@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       end
   end
 
-  resources :cooking_hacks, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :cooking_hacks
+  resources :users, only: :show
     
 
 end

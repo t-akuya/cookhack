@@ -11,9 +11,9 @@
           <li><%= link_to 'みんなのハック', "#", class: "hack-item" %></li>
           <% if user_signed_in? %>
           <%# ニックネームをクリックするとマイページに遷移するようにする%>
-            <li><%= link_to 'マイページ', "#",  class: "my_page" %></li>
+            <li><%= link_to 'マイページ', "/users/#{current_user.id}",  class: "my_page" %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-            <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+            <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
           <%# ニックネームをクリックするとマイページに遷移するようにする%>
             <% else %>
             <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>

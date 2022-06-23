@@ -1,0 +1,66 @@
+<%= render "shared/header" %>
+
+
+<div class="contents-row">
+  <div class="my-name">
+    <p><%= @nickname %>さんの投稿一覧</p>
+  </div>
+
+  <ul class='repertoire-lists'>
+    <% @repertoires.each do |repertoire| %>
+      <li class='list'>
+        <%= link_to repertoire_path(repertoire.id) do %>
+          <div class='repertoire-img-content'>
+            <%= image_tag repertoire.image, class: "repertoire-img" %>
+          </div>
+
+          <div class='repertoire-info'>
+            <h3 class='repertoire-name'>
+              <%= repertoire.name %>
+            </h3>
+            <h5 class='repertoire-time'>
+              <%= repertoire.cooking_time.name %>
+            </h5>
+            <div class='repertoire-cateegory'>
+              <span><%= repertoire.category.name %></span>
+              <div class='heart-btn'>
+                <%= image_tag "heart.png", class:"heart-icon" %>
+                <span class='heart-count'>0</span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>  
+
+
+  <ul class='cooking_hack-lists'>
+      <li class='hack-list'>
+        <% @cooking_hacks.each do |cooking_hack| %>
+          <div class='cooking_hack-item'>
+            <%= link_to cooking_hack_path(cooking_hack.id) do %>
+            <%= image_tag cooking_hack.hack_image, class: "hack-img" %>
+          
+            <div class='cooking_hack-info'>
+              <div class='cooking_hack-title'>
+                <%= cooking_hack.title %>
+              </div>
+              <div class='heart-btn'>
+                <%= image_tag "heart.png", class:"heart-icon" %>
+                <span class='heart-count'>0</span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+  </ul>  
+
+  <div class="return-page">
+    <%= link_to 'トップページへ戻る', root_path %>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
