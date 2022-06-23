@@ -1,10 +1,10 @@
   <div class='cooking_hack-contents'>
     <ul class='cooking_hack-lists'>
-      <span class='hack-list-name'>裏技一覧</span>
+      <div class='hack-list-name'>裏技一覧</div>
       <li class='hack-list'>
         <% @cooking_hacks.each do |cooking_hack| %>
           <div class='cooking_hack-item'>
-            <%#= link_to 詳細ページへのパス do %>
+            <%= link_to cooking_hack_path(cooking_hack.id) do %>
             <%= image_tag cooking_hack.hack_image, class: "hack-img" %>
           
             <div class='cooking_hack-info'>
@@ -16,6 +16,7 @@
                 <span class='heart-count'>0</span>
               </div>
             </div>
+            <% end %>
           </div>
         <% end %>
       </li>

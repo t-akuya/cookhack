@@ -176,7 +176,10 @@
   display: flex;
   justify-content: space-between;
   width: 50vw;
+}
 
+a {
+  color: #81cac4;
 }
 
 .change-repertoire-btn {
@@ -192,4 +195,12 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+.return-page {
+  margin-top: 40px;
+  color: #81cac4;
+  font-weight: bold;
+  font-size: 30px;
+  border-bottom: solid 2px #81cac4
 }
