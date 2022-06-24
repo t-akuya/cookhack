@@ -31,7 +31,7 @@ RSpec.describe "レパートリー投稿", type: :system do
       expect(current_path).to eq(root_path)
       # トップページに投稿した内容のレパートリーが表示されていることを確認する(画像)
       expect(page).to have_selector("img[src$='test_image.png']")
-      # トップページには先ほど投稿した内容のツイートが存在することを確認する（テキスト）
+      # トップページには先ほど投稿した内容のレパートリーが存在することを確認する（テキスト）
       expect(page).to have_content(@repertoire.name)
     end
   end
