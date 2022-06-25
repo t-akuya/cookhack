@@ -112,7 +112,7 @@ ER図等を添付
 | ------------------ | ---------- | ----------------------------- |
 | user_id            | references | null: false                   |
 | repertoire_id      | references | null: false                   |
-
+| cooking_hack_id    | references | null: false                   |
 
 ### Association
 - belongs_to :user
