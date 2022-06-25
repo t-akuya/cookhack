@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   root to: 'repertoires#index'
   
   resources :repertoires do
+    resource :likes, only: [:create, :destroy]
     resources :ingredients, except: [:index]
       collection do
         get 'search'
       end
   end
 
-  resources :cooking_hacks
-  resources :users, only: :show
-    
+
+  resources :users, only: [:show]
 
 end
