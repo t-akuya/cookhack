@@ -2,7 +2,7 @@
 
 
 <div class="contents-row">
-  <div class="my-name">
+  <div class="user-title">
     <p><%= @nickname %>さんの投稿一覧</p>
   </div>
 
@@ -57,7 +57,30 @@
       </li>
   </ul>  
 
-  
+  <div class="user-title">
+    <p>いいねした投稿一覧</p>
+  </div>
+  <ul class='repertoire-lists'>
+    <% @like_repertoires.each do |repertoire| %>
+      <li class='list'>
+        <%= link_to repertoire_path(repertoire.id) do %>
+          <div class='repertoire-img-content'>
+            <%= image_tag repertoire.image, class: "repertoire-img" %>
+          </div>
+
+          <div class='repertoire-info'>
+            <h3 class='repertoire-name'>
+              <%= repertoire.name %>
+            </h3>
+            <h5 class='repertoire-time'>
+              <%= repertoire.cooking_time.name %>
+            </h5>
+            
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>  
 
 
 

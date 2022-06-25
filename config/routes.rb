@@ -10,7 +10,12 @@ Rails.application.routes.draw do
       end
   end
 
+  resources :cooking_hacks
 
-  resources :users, only: [:show]
+   resources :users, only: [:show] do
+    member do
+      get :likes
+    end
+  end
 
 end
