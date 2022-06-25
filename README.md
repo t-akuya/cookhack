@@ -55,11 +55,11 @@ ER図等を添付
 ### Association
 - has_many :repertoires
 - has_many :ingredients
-- has_many :cooking_hack
+- has_many :cooking_hacks
 
 
 
-## cooking_hack
+## cooking_hackテーブル
 
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
@@ -102,4 +102,19 @@ ER図等を添付
 
 ### Association
 - belongs_to :user
-- belongs_to :repertoires
+- belongs_to :repertoire
+
+
+
+## likeテーブル
+
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| user_id            | references | null: false                   |
+| repertoire_id      | references | null: false                   |
+
+
+### Association
+- belongs_to :user
+- belongs_to :repertoire
+- belongs_to :cooking_hack
