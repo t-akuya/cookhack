@@ -10,11 +10,13 @@ Rails.application.routes.draw do
       end
   end
 
-  resources :cooking_hacks
+  resources :cooking_hacks do
+    resource :like_hacks, only: [:create, :destroy]
+  end
 
    resources :users, only: [:show] do
     member do
-      get :likes
+      get :likes, :like_hacks
     end
   end
 
