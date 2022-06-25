@@ -1,6 +1,7 @@
 class CookingHack < ApplicationRecord
   
   belongs_to :user
+  has_many :likes
   has_one_attached :hack_image
 
   with_options presence: true do

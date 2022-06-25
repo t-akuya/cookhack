@@ -66,20 +66,24 @@
         </tr>
       </tbody>
     </table>
-
-
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "heart.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切なレシピの通報</span>
-      </div>
-    </div>
   </div>
 
+
+  <div class="option">
+    <div class="favorite-btn">
+     <% if current_user.already_liked?(@repertoire) %>
+        <%= link_to 'いいねを取り消す', repertoire_likes_path(@repertoire), method: :delete %>
+      <% else %>
+        <%= link_to 'いいね', repertoire_likes_path(@repertoire), method: :post %>
+      <% end %> 
+      <%= image_tag "heart.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
+      <%= @repertoire.likes.size %>
+    </div>
+    <div class="report-btn">
+      <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+      <span>不適切な投稿の通報</span>
+    </div>
+  </div>
 
   <div class="comment-box">
     <form>
