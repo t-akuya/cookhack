@@ -1,5 +1,4 @@
 class LikeHacksController < ApplicationController
-  class LikesController < ApplicationController
     def create
       @like_hack = current_user.like_hacks.create(cooking_hack_id: params[:cooking_hack_id])
       redirect_back(fallback_location: root_path)
@@ -10,5 +9,4 @@ class LikeHacksController < ApplicationController
       @like_hack.destroy
       redirect_back(fallback_location: root_path)
     end
-  end
 end

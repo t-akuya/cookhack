@@ -20,6 +20,7 @@ class CookingHacksController < ApplicationController
   end
 
   def show
+    @like_hack = LikeHack.new
   end
 
   def edit
