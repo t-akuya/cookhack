@@ -49,7 +49,7 @@
                 <span><%= repertoire.category.name %></span>
                 <div class='heart-btn'>
                   <%= image_tag "heart.png", class:"heart-icon" %>
-                  <span class='heart-count'>0</span>
+                  <span class='heart-count'><%= repertoire.liked_users.size %></span>
                 </div>
               </div>
             </div>

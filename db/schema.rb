@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_030424) do
+ActiveRecord::Schema.define(version: 2022_06_25_074326) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,24 @@ ActiveRecord::Schema.define(version: 2022_06_07_030424) do
     t.index ["repertoire_id"], name: "index_ingredients_on_repertoire_id"
   end
 
+  create_table "like_hacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cooking_hack_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cooking_hack_id"], name: "index_like_hacks_on_cooking_hack_id"
+    t.index ["user_id"], name: "index_like_hacks_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "repertoire_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repertoire_id"], name: "index_likes_on_repertoire_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "repertoires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "cooking_time_id", null: false
@@ -85,5 +103,9 @@ ActiveRecord::Schema.define(version: 2022_06_07_030424) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "ingredients", "repertoires"
+  add_foreign_key "like_hacks", "cooking_hacks"
+  add_foreign_key "like_hacks", "users"
+  add_foreign_key "likes", "repertoires"
+  add_foreign_key "likes", "users"
   add_foreign_key "repertoires", "users"
 end

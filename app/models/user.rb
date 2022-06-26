@@ -6,6 +6,18 @@ class User < ApplicationRecord
 
   has_many :repertoires
   has_many :cooking_hacks
+  has_many :likes, dependent: :destroy
+  has_many :like_hacks, dependent: :destroy
+  has_many :liked_repertoires, through: :likes, source: :repertoire
+
+  def already_liked?(repertoire)
+    self.likes.exists?(repertoire_id: repertoire.id)
+  end
+
+  def already_hack_liked?(cooking_hack)
+    self.like_hacks.exists?(cooking_hack_id: cooking_hack.id)
+  end
+
 
   with_options presence: true do
     validates :nickname

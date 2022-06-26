@@ -1,6 +1,8 @@
 class CookingHack < ApplicationRecord
   
   belongs_to :user
+  has_many :like_hacks
+  has_many :liked_users, through: :like_hacks, source: :user
   has_one_attached :hack_image
 
   with_options presence: true do
