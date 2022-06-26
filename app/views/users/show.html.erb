@@ -1,6 +1,5 @@
 <%= render "shared/header" %>
 
-
 <div class="contents-row">
   <div class="user-title">
     <p><%= @nickname %>さんの投稿一覧</p>
@@ -25,7 +24,7 @@
               <span><%= repertoire.category.name %></span>
               <div class='heart-btn'>
                 <%= image_tag "heart.png", class:"heart-icon" %>
-                <span class='heart-count'>0</span>
+                <span class='heart-count'><%= repertoire.liked_users.size %> </span>
               </div>
             </div>
           </div>
@@ -33,7 +32,6 @@
       </li>
     <% end %>
   </ul>  
-
 
   <ul class='cooking_hack-lists'>
       <li class='hack-list'>
@@ -48,7 +46,7 @@
               </div>
               <div class='heart-btn'>
                 <%= image_tag "heart.png", class:"heart-icon" %>
-                <span class='heart-count'>0</span>
+                <span class='heart-count'><%= cooking_hack.liked_users.size %></span>
               </div>
             </div>
             <% end %>
@@ -80,6 +78,29 @@
         <% end %>
       </li>
     <% end %>
+  </ul>  
+
+  <ul class='cooking_hack-lists'>
+      <li class='hack-list'>
+        <% @like_cooking_hack .each do |cooking_hack| %>
+          <div class='cooking_hack-item'>
+            <%= link_to cooking_hack_path(cooking_hack.id) do %>
+            <%= image_tag cooking_hack.hack_image, class: "hack-img" %>
+          
+            <div class='cooking_hack-info'>
+              <div class='cooking_hack-title'>
+                <%= cooking_hack.title %>
+              </div>
+              <div class='heart-btn'>
+                <%= image_tag "heart.png", class:"heart-icon" %>
+                <span class='heart-count'><%= cooking_hack.liked_users.size %></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+  </ul>  
   </ul>  
 
 

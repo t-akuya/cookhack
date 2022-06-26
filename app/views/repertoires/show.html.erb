@@ -48,7 +48,7 @@
               <td class="ingredients-data">
                   <% @repertoire.ingredients.each do |ingredient| %>
                   <ul class="ingredient-list">
-                    <li><%= ingredient.name %> / <%= ingredient.amount %></li>
+                    <li><%=safe_join(ingredient.name .split("\n"),tag(:br))%> / <%=safe_join(ingredient.amount.split("\n"),tag(:br))%></li>
                   </ul>
                   <% end %>
               </ul>
@@ -58,11 +58,11 @@
 
         <tr>
           <th class="detail-repertoire">レシピ</th>
-          <td class="detail-value"><%= @repertoire.recipe %></td>
+          <td class="detail-value"><%=safe_join(@repertoire.recipe.split("\n"),tag(:br))%></td>
         </tr>
         <tr>
           <th class="detail-repertoire">ひとことメモ</th>
-          <td class="detail-value"><%= @repertoire.comment %></td>
+          <td class="detail-value"><%=safe_join(@repertoire.comment.split("\n"),tag(:br))%></td>
         </tr>
       </tbody>
     </table>
