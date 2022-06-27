@@ -17,8 +17,6 @@
     </div>
   </div>
 
-
-
   <div class='search-bar-contents'>
     <%= form_with url: search_repertoires_path, local: true, method: :get, class: "search-form" do |f| %>
       <%= f.text_field :keyword, placeholder: "食材or料理名から検索", class: "search-input" %>
@@ -35,32 +33,28 @@
       <% @repertoires.each do |repertoire| %>
         <li class='list'>
           <%= link_to repertoire_path(repertoire.id) do %>
-          <div class='repertoire-img-content'>
-            <%= image_tag repertoire.image, class: "repertoire-img" %>
-          </div>
-
-
-          <div class='repertoire-info'>
-            <h3 class='repertoire-name'>
-              <%= repertoire.name %>
-            </h3>
-            <h5 class='repertoire-time'>
-              <%= repertoire.cooking_time.name %>
-            </h5>
-            <div class='repertoire-cateegory'>
-              <span><%= repertoire.category.name %></span>
-
-              <div class='heart-btn'>
-                <%= image_tag "heart.png", class:"heart-icon" %>
-                <span class='heart-count'>0</span>
-              </div>
-
+            <div class='repertoire-img-content'>
+              <%= image_tag repertoire.image, class: "repertoire-img" %>
             </div>
-          </div>
+
+            <div class='repertoire-info'>
+              <h3 class='repertoire-name'>
+                <%= repertoire.name %>
+              </h3>
+              <h5 class='repertoire-time'>
+                <%= repertoire.cooking_time.name %>
+              </h5>
+              <div class='repertoire-cateegory'>
+                <span><%= repertoire.category.name %></span>
+                <div class='heart-btn'>
+                  <%= image_tag "heart.png", class:"heart-icon" %>
+                  <span class='heart-count'>0</span>
+                </div>
+              </div>
+            </div>
           <% end %>
         </li>
       <% end %>
-
 
       <% if @repertoires.blank? %> 
         <div class='repertoire-info'>
@@ -72,12 +66,6 @@
       
 </div>
 
-<%= link_to '<レパートリー一覧へもどる>', "/", class: "back-btn" %>
-
-
-<%= link_to(new_repertoire_path, class: 'post-btn') do %>
-  <span class='post-btn-text' >投稿する</span>
-  <%= image_tag 'post-btn.png' , size: '185x70' ,class: "post-btn-icon" %>
-<% end %>
+<%= link_to 'トップページへもどる', "/", class: "back-btn" %>
 
 <%= render "shared/footer" %>

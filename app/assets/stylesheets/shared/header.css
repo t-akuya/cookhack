@@ -1,9 +1,12 @@
 
 .top-page-header {
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: rgb(237, 237, 237);
   box-sizing: border-box;  
+  position: sticky;
+  top: 0;
 }
 
 .cook-hack-header-icon {
@@ -61,10 +64,12 @@
 }
 
 .user-nickname {
-  color: #81cac4;
-  font-weight: bold;
+  color: #fff;
   font-size: 25px;
-  padding: 3vw;
+  padding: 3vh;
+  background-color: #81cac4;
+  border-radius: 50px;
+  margin-left: 50px;
 }
 
 .sign-up {

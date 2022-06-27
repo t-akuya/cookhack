@@ -26,9 +26,8 @@
     <div class='cook-hack-details'>
       <h2 class='footer-content-head'>Cookhackを見る</h2>
       <ul>
-        <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
-        <li><%= link_to 'みんなのレパートリー一覧', "#", class: "footer-link" %></li>
-        <li><%= link_to 'みんなのハック一覧', "#", class: "footer-link" %></li>
+        <li><%= link_to 'みんなのレパートリー一覧', root_path(anchor: 'repertoire-list-name'), class: "footer-link" %></li>
+        <li><%= link_to 'みんなのハック一覧', root_path(anchor: 'hack-list-name'), class: "footer-link" %></li>
       </ul>
     </div>
     <div class='cook-hack-details'>

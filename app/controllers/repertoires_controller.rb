@@ -17,14 +17,13 @@ class RepertoiresController < ApplicationController
     @ingredient = @repertoire.ingredients
 
     @ingredient.each do |ingredient|
-      #材料名に漢字が含まれていれば...
-      if ingredient.name.match?(/\p{Han}/)
-        #材料名をひらがな変換→さらにローマ字変換し、左辺に代入
-        ingredient.conversion_name = ingredient.name.to_kanhira.to_kana.to_roman
-        #全てカタカナ、もしくは(||)ひらがなの場合、ローマ字に変換、左辺に代入
-      elsif ingredient.name.is_hira? || ingredient.name.is_kana? || ingredient.name.is_japanese?
+       #材料名がカタカナ、もしくはひらがなの場合、ローマ字に変換、左辺に代入
+      if ingredient.name.is_hira? || ingredient.name.is_kana?
         ingredient.conversion_name = ingredient.name.to_roman
-      else #どちらでもない場合、入力された材料名はローマ字と判断、そのまま代入
+        #材料名に漢字が含まれていれば、ひらがなに変換→さらにローマ字変換し、左辺に代入
+      elsif ingredient.name.match?(/\p{Han}/)
+        ingredient.conversion_name = ingredient.name.to_kanhira.to_roman
+      else #どちらでもない場合、入力された材料名はそのまま代入
         ingredient.conversion_name = ingredient.name
       end
     end
@@ -67,10 +66,10 @@ class RepertoiresController < ApplicationController
     keyword = params[:search]
 
     unless keyword.blank?
-      if keyword.match?(/\p{Han}/)
-        conversion_keyword = keyword.to_kanhira.to_roman
-      elsif keyword.is_hira? || keyword.is_kana?
+      if keyword.is_hira? || keyword.is_kana?
         conversion_keyword = keyword.to_roman
+      elsif keyword.match?(/\p{Han}/)
+        conversion_keyword = keyword.to_kanhira.to_roman
       else
         conversion_keyword = keyword
       end
