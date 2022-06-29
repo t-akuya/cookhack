@@ -26,7 +26,6 @@ class CookingHacksController < ApplicationController
   def edit
   end
 
-
   def update
     if @cooking_hack.update(cooking_hack_params)
       redirect_to cooking_hack_path
@@ -36,22 +35,19 @@ class CookingHacksController < ApplicationController
   end
 
   def destroy
-    if @cooking_hack.user_id == current_user.id
-      @cooking_hack.destroy
-    end
+    @cooking_hack.destroy if @cooking_hack.user_id == current_user.id
     redirect_to root_path
   end
 
-
   private
+
   def cooking_hack_params
     params.require(:cooking_hack)
-    .permit(:hack_image, :title, :contents, :user_id)
-    .merge(user_id: current_user.id)
+          .permit(:hack_image, :title, :contents, :user_id)
+          .merge(user_id: current_user.id)
   end
 
   def set_action
     @cooking_hack = CookingHack.find(params[:id])
   end
-
 end

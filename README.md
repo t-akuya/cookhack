@@ -1,12 +1,14 @@
 # README
-<img  alt="" src="">
-
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/90121924/175866138-a44dd5e5-cc23-4d38-808e-f038c5d18e4e.png" alt="ロゴ">
+</div>
 ## アプリ名
-Cookhack
+Cookhack(クックハック)
 
 ## 概要
-料理を時短するためのレシピ投稿サイトです。
-時短料理のレパートリーや時短テクニックを共有し、料理にかかる時間を削減、楽にします。
+
+時短料理と調理の時短テクニックを投稿、共有できるレシピサイトです。
+材料からレシピを検索でき,いいねボタンを押すとマイページに保存することができます。
 
 ## 本番環境
 URL:
@@ -20,7 +22,7 @@ Basic認証
 - Pass:
 
 ## 制作背景(意図)
-　誰かの課題を解決できるようなアプリを作りたいと考えていたので、まずは一番身近である家族の負担を軽減できたらと思い、制作しました。
+誰かの課題を解決できるようなアプリを作りたいと考えていたので、まずは一番身近である家族の負担を軽減できたらと思い、制作しました。
 家事の中でも料理は特に時間と労力を費やします。その負担を少しでも減らし、ユーザーの自由な時間を少しでも増やせるように設計しました。
 
 ## DEMO
@@ -97,7 +99,7 @@ ER図等を添付
 | name               | string     | null: false                   |
 | amount             | string     | null: false                   |
 | repertoire         | references | null: false,foreign_key: true |
-| conversion_name    | string     | 															|
+| conversion_name    | string     |                               |
 
 
 ### Association
@@ -112,9 +114,19 @@ ER図等を添付
 | ------------------ | ---------- | ----------------------------- |
 | user_id            | references | null: false                   |
 | repertoire_id      | references | null: false                   |
-| cooking_hack_id    | references | null: false                   |
 
 ### Association
 - belongs_to :user
 - belongs_to :repertoire
+
+
+## like_hackテーブル
+
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| user_id            | references | null: false                   |
+| cooking_hack_id    | references | null: false                   |
+
+### Association
+- belongs_to :user
 - belongs_to :cooking_hack
