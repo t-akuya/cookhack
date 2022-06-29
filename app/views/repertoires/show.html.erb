@@ -103,12 +103,12 @@
   <div class="links">
     <div class="change-repertoire-btn">
       <% if @repertoire.previous.present? %>
-        <%= link_to '＜前の裏技へ', repertoire_path(@repertoire.previous) %>
+        <%= link_to '＜前のレパートリーへ', repertoire_path(@repertoire.previous) %>
       <% end %>
     </div>
     <div class="change-repertoire-btn">
       <% if @repertoire.next.present? %>
-        <%= link_to '次の裏技へ＞', repertoire_path(@repertoire.next) %>
+        <%= link_to '次のレパートリーへ＞', repertoire_path(@repertoire.next) %>
       <% end %>
     </div>
   </div>
