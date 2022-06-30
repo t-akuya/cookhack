@@ -18,24 +18,24 @@ class RepertoiresController < ApplicationController
 
     @ingredient.each do |ingredient|
       ingredient.conversion_name = 
-      begin
-        # 材料名がカタカナ、もしくはひらがなの場合、ローマ字に変換、左辺に代入
-        if ingredient.name.match?(/\p{Han}/)
-          ingredient.name.to_kanhira.to_roman
-        # 材料名が漢字の場合、ひらがなに変換→さらにローマ字変換し、左辺に代入
-        elsif ingredient.name.is_hira? || ingredient.name.is_kana?
-          ingredient.name.to_roman
-        # 漢字が含まれる場合そのまま代入
-        elsif ingredient.name
-                        .ingredient.name.to_kanhira.to_roman
-        # どちらでもない場合ローマ字と判断、そのまま代入
-        else
+        begin
+          # 材料名がカタカナ、もしくはひらがなの場合、ローマ字に変換、左辺に代入
+          if ingredient.name.match?(/\p{Han}/)
+            ingredient.name.to_kanhira.to_roman
+          # 材料名が漢字の場合、ひらがなに変換→さらにローマ字変換し、左辺に代入
+          elsif ingredient.name.is_hira? || ingredient.name.is_kana?
+            ingredient.name.to_roman
+          # 漢字が含まれる場合そのまま代入
+          elsif ingredient.name
+            ingredient.name.to_kanhira.to_roman
+          # どちらでもない場合ローマ字と判断、そのまま代入
+          else
+            ingredient.name
+          end
+        # 変換できなかった場合、そのまま代入
+        rescue StandardError
           ingredient.name
         end
-      # 変換できなかった場合、そのまま代入
-      rescue StandardError
-        ingredient.name
-      end
     end
 
     if @repertoire.save

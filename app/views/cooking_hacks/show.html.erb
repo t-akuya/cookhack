@@ -37,11 +37,13 @@
 
     <div class="option">
       <div class="favorite-btn">
-      <% if current_user.already_hack_liked?(@cooking_hack) %>
+      <% if user_signed_in? %>
+        <% if current_user.already_hack_liked?(@cooking_hack) %>
           <%= link_to 'いいねを取り消す',  cooking_hack_like_hacks_path(@cooking_hack), method: :delete %>
         <% else %>
           <%= link_to 'いいね',  cooking_hack_like_hacks_path(@cooking_hack), method: :post %>
         <% end %> 
+      <% end%>
         <%= image_tag "heart.png" ,class:"favorite-heart-icon" ,width:"20",height:"20"%>
         <%= @cooking_hack.like_hacks.size %>
       </div>

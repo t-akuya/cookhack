@@ -169,3 +169,12 @@
   font-size: 12px;
   font-weight: bold;
 }
+
+.error-alert {
+  text-align: center;
+}
+
+.error-message {
+  font-size: 15px;
+  color: #ca8187;
+}

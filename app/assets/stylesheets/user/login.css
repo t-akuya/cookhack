@@ -19,3 +19,8 @@
   background-color: white;
   height: 600px;
 }
+
+.login-flash-message {
+  text-align: center;
+  color: #ca8187;
+}

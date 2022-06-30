@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :liked_repertoires, through: :likes, source: :repertoire
 
   def already_liked?(repertoire)
-    self.likes.exists?(repertoire_id: repertoire.id)
+    likes.exists?(repertoire_id: repertoire.id)
   end
 
   def already_hack_liked?(cooking_hack)
-    self.like_hacks.exists?(cooking_hack_id: cooking_hack.id)
+    like_hacks.exists?(cooking_hack_id: cooking_hack.id)
   end
 
   with_options presence: true do
