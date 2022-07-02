@@ -7,7 +7,7 @@
       <div class='header-list'>
         <ul class='menu-list'>
           <li><%= link_to 'みんなのレパートリー', root_path(anchor: 'repertoire-list-name'), class: "repertoires-item" %></li>
-          <li><%= link_to 'みんなの裏技', root_path(anchor: 'hack-list-name'), class: "hack-item" %></li>
+          <li><%= link_to 'みんなの裏ワザ', root_path(anchor: 'hack-list-name'), class: "hack-item" %></li>
           <% if user_signed_in? %>
           <%# ニックネームをクリックするとマイページに遷移するようにする%>
             <li><%= link_to 'マイページ', "/users/#{current_user.id}",  class: "my_page" %></li>

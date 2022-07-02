@@ -17,8 +17,7 @@ window.addEventListener("load", function () {
     const formList = document.getElementById("ingredient-main")
 
     //html要素を取り出し記入,idとplaceholderの0に指定していたところに
-    //${formNum}を挿入することで、一つ目のフォームにはingredient-name_0、
-    //二つ目はingredient-name_1、三つ目はingredient-name_2と足されていく
+    //${formNum}を挿入することで、フォームはingredient-name_0、ingredient-name_1と足増えていく
     const html = `<div id="ingredient-main">
                     <div id="ingredient-form">
                       <div id="add-form">
@@ -39,8 +38,7 @@ window.addEventListener("load", function () {
 
     //insertAdjacentHTMLでノードを複製、挿入場所を17行目で定義したformList内に指定する。
     //引数のbeforeendで複製場所を末尾に指定,htmlで複製するものを指定する。
-    //この一行での処理を要約すると、
-    //『(html)を複製(insertAdjacentHTML)し、(formList)の末尾(beforeend)に挿入する』
+    //要約すると、『(html)を複製(insertAdjacentHTML)し、(formList)の末尾(beforeend)に挿入する』
     formList.insertAdjacentHTML('beforeend', html);
 
      //全ての削除ボタンを取得、deleteBtnsに定義する

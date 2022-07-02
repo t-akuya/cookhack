@@ -4,7 +4,7 @@
   </header>
 
   <div class="repertoires-post-main">
-    <h2 class="repertoires-post-title">裏技を入力</h2>
+    <h2 class="repertoires-post-title">裏ワザを入力</h2>
 
     <%= form_with model: @cooking_hack, local: true do |f| %>
 
@@ -25,7 +25,7 @@
 
     <div class="new-repertoire">
       <div class="weight-bold-text">
-        裏技タイトル
+        裏ワザタイトル
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :title, class:"post-text", id:"repertoire-name", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
