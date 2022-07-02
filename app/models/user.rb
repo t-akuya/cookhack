@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :repertoires
-  has_many :cooking_hacks
+  has_many :repertoires, dependent: :destroy
+  has_many :cooking_hacks, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_hacks, dependent: :destroy
   has_many :liked_repertoires, through: :likes, source: :repertoire

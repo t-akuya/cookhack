@@ -35,7 +35,9 @@ class CookingHacksController < ApplicationController
   end
 
   def destroy
-    @cooking_hack.destroy if @cooking_hack.user_id == current_user.id
+    if @cooking_hack.user_id == current_user.id
+      @cooking_hack.destroy
+    end
     redirect_to root_path
   end
 
