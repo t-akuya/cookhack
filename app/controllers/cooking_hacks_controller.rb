@@ -3,7 +3,7 @@ class CookingHacksController < ApplicationController
   before_action :set_action, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cooking_hacks = CookingHack.all
+    @cooking_hacks = CookingHack.includes(:user)
   end
 
   def new

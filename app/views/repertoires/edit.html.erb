@@ -66,27 +66,25 @@
          <div class="weight-bold-text">
             材料 <span class="indispensable">必須</span>
          </div>
-         <div id="ingredient-main">
-          <%= f.fields_for :ingredients,  include_id: false do |ingredient| %>
-            <!--<%= @repertoire.ingredients.size %>でingredientsのレコードを参照-->
-            <input type="hidden" id="number" value="<% @repertoire.ingredients.size %>">
-
-            
-              <div id="ingredient-form">
-                <div id="add-form">
-                  <%= ingredient.text_field :name, placeholder: "追加する材料"  %>
+          <div id="ingredient-main">
+            <%= f.fields_for :ingredients,  include_id: false do |ingredient| %>
+              <!--<%= @repertoire.ingredients.size %>でingredientsのレコードを参照-->
+              <input type="hidden" id="number" value="<%= @repertoire.ingredients.size %>">
+                <div id="ingredient-form">
+                  <div id="add-form">
+                    <%= ingredient.text_field :name, placeholder: "追加する材料"  %>
+                  </div>
+                  <div id="add-form">
+                    <%= ingredient.text_field :amount, placeholder: "追加する分量"  %>
+                  </div>
+                  <div id="add-form" class="delete" >
+                    <button type="button" id="repertoire_ingredients_attributes__del" class="delete-btn" >
+                      削除
+                    </button>
+                  </div>
                 </div>
-                <div id="add-form">
-                  <%= ingredient.text_field :amount, placeholder: "追加する分量"  %>
-                </div>
-                <div id="add-form" class="delete" >
-                  <button type="button" id="repertoire_ingredients_attributes__del" class="delete-btn" >
-                    削除
-                  </button>
-                </div>
-              </div>
-          <% end %>
-         </div>
+            <% end %>
+          </div>
         
           <div class="add-form-btn">
               <input type="button" value="材料を追加" id="add-btn">
