@@ -56,7 +56,35 @@
         </li>
       <% end %>
 
-      <% if @search_words.blank? %> 
+      <% if @search_words.blank? %>
+        <%  @words.each do |repertoire| %>
+         <li class='list'>
+           <%= link_to repertoire_path(repertoire.id) do %>
+            <div class='repertoire-img-content'>
+              <%= image_tag repertoire.image, class: "repertoire-img" %>
+            </div>
+
+            <div class='repertoire-info'>
+              <h3 class='repertoire-name'>
+                <%= repertoire.name %>
+              </h3>
+              <h5 class='repertoire-time'>
+                <%= repertoire.cooking_time.name %>
+              </h5>
+              <div class='repertoire-cateegory'>
+                <span><%= repertoire.category.name %></span>
+                <div class='heart-btn'>
+                  <%= image_tag "heart.png", class:"heart-icon" %>
+                  <span class='heart-count'><%= repertoire.liked_users.size %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+         </li>
+        <% end %>
+      <% end %>
+
+      <% if @search_words.blank? && @words.blank? %> 
         <div class='repertoire-info'>
           <h3 class='repertoire-blank'>
             該当するレパートリーがありません

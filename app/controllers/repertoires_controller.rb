@@ -70,6 +70,7 @@ class RepertoiresController < ApplicationController
   def search
     keyword = params[:keyword]
     unless keyword.blank?
+      word = keyword
       conversion_word = if keyword.match?(/\p{Han}/)
                           keyword.to_kanhira.to_roman
                         elsif keyword.is_hira? || keyword.is_kana?
@@ -78,6 +79,7 @@ class RepertoiresController < ApplicationController
                           keyword
                         end
     end
+    @words = Repertoire.search(word)
     @search_words = Repertoire.search(conversion_word)
   end
 end
