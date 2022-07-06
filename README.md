@@ -1,45 +1,106 @@
-# README
+# Cookhack(クックハック)
+### Cookhackは時短に特化した料理と調理に役立つ裏ワザを投稿、共有できるWebアプリケーションです。
+
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/90121924/175866138-a44dd5e5-cc23-4d38-808e-f038c5d18e4e.png" alt="ロゴ">
+   <img width="1427" alt="スクリーンショット 2022-07-06 13 44 33" src="https://user-images.githubusercontent.com/90121924/177470567-e6d8aba7-012b-480d-9075-c83a890567c3.png">
 </div>
-## アプリ名
-Cookhack(クックハック)
+
+
 
 ## 概要
+Cookhackは、共働きや育児で忙しい方々の調理時間を短縮し、自分のレパートリーを記録できるサービスです。  
+レシピを検索したり、共有することができます。
 
-時短料理と調理の時短テクニックを投稿、共有できるレシピサイトです。
-材料からレシピを検索でき,いいねボタンを押すとマイページに保存することができます。
+- 材料、料理名からレシピを検索可能
+- "いいね"を押すとマイページに保存できる
+
+実装機能の詳細は、[機能一覧](#機能一覧)をご覧ください
+
 
 ## 本番環境
-URL:
+URL: https://cookhack-9989.herokuapp.com/
+
+
 
 ログイン情報 
-- Eメール:
-- パスワード:
-
-Basic認証
-- ID:
-- Pass:
+- Eメール: test@test.com
+- パスワード: aaaa0000
 
 ## 制作背景(意図)
-誰かの課題を解決できるようなアプリを作りたいと考えていたので、まずは一番身近である家族の負担を軽減できたらと思い、制作しました。
-家事の中でも料理は特に時間と労力を費やします。その負担を少しでも減らし、ユーザーの自由な時間を少しでも増やせるように設計しました。
+誰かの課題を解決できるようなWebアプリを作りたいと考えていたので、まずは一番身近である家族の負担を軽減できたらと思い、制作しました。
+"献立を考えるところからが料理"という家族の意見を聞き、家事の中でも特に時間と労力のかかる自炊に関して同じ悩みを抱えている人がどれくらいいるのか調べたところ、調理の時間を短縮したいという人が多くいることがわかりました。このことから、時短料理に特化したレシピサイトに需要があると確信し、制作しました。
 
-## DEMO
-	画像はGyazoGIFはGyazoGIFで
+参考サイト  
+[9割が時短したい!共働きや育児で忙しい現代人](https://prtimes.jp/main/html/rd/p/000000042.000007310.html)
+
+
+
+## ターゲットユーザー
+ネットリサーチ会社のマイボイスコム（株）のアンケート調査結果によると、週6日以上料理をする人は
+- 30代は約45%
+- 40代で60%強
+- 50～70代で70～80%
+- 全体の7割が女性
+
+このことから、ターゲットは  
+ 料理をする割合が多く、インターネット利用率の多い30代〜40代女性に設定しました。
+
+
+参考サイト  
+[料理に関する調査/アンケートデータベース(MyEL)](https://myel.myvoice.jp/products/detail.php?product_id=14002)
 
 
 ## 工夫したポイント
+#### ユーザー目線で必要な機能を実装
+**1.材料から検索可能**  
+ユーザーが献立を考える際、冷蔵庫にある食材からレシピを検索できるように、料理名からだけでなく材料から検索できる機能を実装しました。
+
+![-c7q0wpollgwcdjwp](https://user-images.githubusercontent.com/90121924/177546877-d8946000-0b20-4bb3-8f8a-0de97dd69f7f.gif)
+
+**2.材料入力フォームの追加、削除**  
+投稿時、ユーザーが材料入力フォームで改行したり分量と組み合わせたりする作業を短縮させるため、材料、分量を一組ずつフォームを自由に増減でき、見た目にもわかりやすく入力できるようにしました。Javascriptを使用し、非同期でフォームの追加、削除が行えます。
+
+![1フォーム追加削除](https://user-images.githubusercontent.com/90121924/177506766-63162132-63c1-4032-a555-5e499b4a7bbd.gif)
+
 
 ## 使用技術(開発環境)
+- Ruby 2.6.5
+- Rails 6.0.5
+- MYSQL 5.6.51
+- AWS
+	- S3
+- RSpec
 
-## 課題や今後実装したい機能
+
+
+## 機能一覧
+- ユーザー登録、ログイン機能(devise)
+- 投稿機能
+	- 画像投稿(Active Strage)
+	- セレクトボックス(Active Hash)
+	- フォーム追加、削除(Ajax)
+- 検索機能
+	- 字体不問変換(miyabi)
+- いいね機能
+- マイページ
+
+
+
+## テスト
+- RSpec
+	- 単体テスト(model)
+	- 統合テスト(system)
+
+
+
+## ER図
+<div>
+<img width="833" alt="スクリーンショット 2022-07-06 21 17 58" src="https://user-images.githubusercontent.com/90121924/177548435-1f2b8466-a172-416c-81ff-f72e6be6f24f.png">
+</div>
+
+
 
 ## DB設計
-ER図等を添付
-
-
-
 
 ## usersテーブル
 
@@ -55,9 +116,11 @@ ER図等を添付
 | birth_day          | date     | null: false                   |
 
 ### Association
-- has_many :repertoires
-- has_many :ingredients
-- has_many :cooking_hacks
+- has_many :repertoires, dependent: :destroy
+- has_many :cooking_hacks, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :like_hacks, dependent: :destroy
+- has_many :liked_repertoires, through: :likes, source: :repertoire
 
 
 
@@ -71,6 +134,9 @@ ER図等を添付
 
 ### Association
 - belongs_to :user
+- has_many :like_hacks, dependent: :destroy
+- has_many :liked_users, through: :like_hacks, source: :user
+- has_one_attached :hack_image
 
 
 
@@ -87,8 +153,12 @@ ER図等を添付
 | user               | references | null: false, foreign_key      |
 
 ### Association
+- has_one_attached :image
 - belongs_to :user
-- has_many   :ingredients
+- has_many :likes, dependent: :destroy
+- has_many :liked_users, through: :likes, source: :user
+- has_many :ingredients, dependent: :destroy
+- accepts_nested_attributes_for :ingredients, allow_destroy: true
 
 
 
@@ -103,7 +173,6 @@ ER図等を添付
 
 
 ### Association
-- belongs_to :user
 - belongs_to :repertoire
 
 
