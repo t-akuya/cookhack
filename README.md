@@ -17,14 +17,14 @@ Cookhackは、共働きや育児で忙しい方々の調理時間を短縮し、
 実装機能の詳細は、[機能一覧](#機能一覧)をご覧ください
 
 
+
 ## 本番環境
 URL: https://cookhack-9989.herokuapp.com/
-
-
 
 ログイン情報 
 - Eメール: test@test.com
 - パスワード: aaaa0000
+
 
 ## 制作背景(意図)
 誰かの課題を解決できるようなWebアプリを作りたいと考えていたので、まずは一番身近である家族の負担を軽減できたらと思い、制作しました。
@@ -42,7 +42,7 @@ URL: https://cookhack-9989.herokuapp.com/
 - 50～70代で70～80%
 - 全体の7割が女性
 
-このことから、ターゲットは  
+ですので、ターゲットは  
  料理をする割合が多く、インターネット利用率の多い30代〜40代女性に設定しました。
 
 
@@ -55,12 +55,19 @@ URL: https://cookhack-9989.herokuapp.com/
 **1.材料から検索可能**  
 ユーザーが献立を考える際、冷蔵庫にある食材からレシピを検索できるように、料理名からだけでなく材料から検索できる機能を実装しました。
 
-![-c7q0wpollgwcdjwp](https://user-images.githubusercontent.com/90121924/177546877-d8946000-0b20-4bb3-8f8a-0de97dd69f7f.gif)
+![1](https://user-images.githubusercontent.com/90121924/177514017-e32a5a24-e5a1-4567-a7a5-68665c744072.gif)  
 
-**2.材料入力フォームの追加、削除**  
+**2.検索ワードを問わない**  
+検索時、入力する材料名の表記（ひらがな、カタカナ、漢字）がどの文字でもヒットするように実装しました
+
+![2](https://user-images.githubusercontent.com/90121924/177564173-86fcbbaf-848f-49fd-8bcb-62f45982a093.gif)
+
+
+
+**3.材料入力フォームの追加、削除**  
 投稿時、ユーザーが材料入力フォームで改行したり分量と組み合わせたりする作業を短縮させるため、材料、分量を一組ずつフォームを自由に増減でき、見た目にもわかりやすく入力できるようにしました。Javascriptを使用し、非同期でフォームの追加、削除が行えます。
 
-![1フォーム追加削除](https://user-images.githubusercontent.com/90121924/177506766-63162132-63c1-4032-a555-5e499b4a7bbd.gif)
+![1フォーム追加削除](https://user-images.githubusercontent.com/90121924/177506766-63162132-63c1-4032-a555-5e499b4a7bbd.gif)  
 
 
 ## 使用技術(開発環境)
@@ -95,7 +102,7 @@ URL: https://cookhack-9989.herokuapp.com/
 
 ## ER図
 <div>
-<img width="833" alt="スクリーンショット 2022-07-06 21 17 58" src="https://user-images.githubusercontent.com/90121924/177548435-1f2b8466-a172-416c-81ff-f72e6be6f24f.png">
+<img width="837" alt="スクリーンショット 2022-07-05 13 21 00" src="https://user-images.githubusercontent.com/90121924/177248839-7f88a15a-61dd-4287-a4ee-bb65248ae793.png">
 </div>
 
 
