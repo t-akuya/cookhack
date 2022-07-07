@@ -74,6 +74,10 @@
               <%= repertoire.cooking_time.name %>
             </h5>
             
+            <div class='heart-btn'>
+                  <%= image_tag "heart.png", class:"heart-icon" %>
+                  <span class='heart-count'><%= repertoire.liked_users.size %></span>
+                </div>
           </div>
         <% end %>
       </li>
